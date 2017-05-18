@@ -19,8 +19,5 @@ public class BaseController {
 	public ServiceManager getServiceManager() {
 		return serviceManager;
 	}
-	
-	
-	
 
 }
