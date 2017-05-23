@@ -9,7 +9,14 @@ public class DAOManager {
 	@Autowired
 	private TestUserDAO testUserDAO;
 	
+	@Autowired
+	private ParentDAO parentDAO;
+	
 	public TestUserDAO getTestUserDAO(){
 		return testUserDAO;
+	}
+	
+	public ParentDAO getParentDAO(){
+		return parentDAO;
 	}
 }
