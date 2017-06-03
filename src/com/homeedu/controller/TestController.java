@@ -1,4 +1,4 @@
-package com.homeedu.contoller;
+package com.homeedu.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,5 +17,5 @@ public class TestController extends BaseController{
 		return new ModelAndView("/teaHome");
 	}
 	
-	//Õâ¸öÀàÖÖĞ´¾ßÌå¹ØÓÚtestµÄControllµÄ´¦Àí£¬ÕâÀïÊÇ²âÊÔÓÃ¡£µ«ÊÇÒ»¸öÀÏÊ¦£¬Ò»¸ö¼Ò³¤£¬ĞÂµÄÊµÌåÀàÒª¶ÔÓ¦ĞÂµÄStuControllerÕâÖÖÑù×Ó£¬²»ÈİÒ×»ìÂÒ£¡¼ÇµÃÀàÉÏÃæ¼Ó@Conrtoller×¢½â¡£Service¼Ó@Service×¢½â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½testï¿½ï¿½Controllï¿½Ä´ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê¦ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Âµï¿½Êµï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ó¦ï¿½Âµï¿½StuControllerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×»ï¿½ï¿½Ò£ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@Conrtoller×¢ï¿½â¡£Serviceï¿½ï¿½@Service×¢ï¿½ï¿½
 }

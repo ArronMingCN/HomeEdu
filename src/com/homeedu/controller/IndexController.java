@@ -1,4 +1,4 @@
-package com.homeedu.contoller;
+package com.homeedu.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +14,11 @@ public class IndexController extends BaseController{
 
 	
 	/**
-	 * ÉêÇëÖ÷Ò³
+	 * ä¸»é¡µ
 	 * @author Arron
 	 * @param request
 	 * @param response
-	 * @return ·µ»ØÖ÷Ò³Ãæ
+	 * @return
 	 */
 	@RequestMapping("/home")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response){
@@ -27,7 +27,6 @@ public class IndexController extends BaseController{
 	}
 	
 	/**
-	 * ÉêÇëµÇÂ¼Ò³Ãæ
 	 * @author Arron
 	 * @param request
 	 * @param response
@@ -35,11 +34,15 @@ public class IndexController extends BaseController{
 	 */
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response){
+		
+		
+		
+		
 		ModelAndView loginPage=new ModelAndView("/login");
 	return loginPage;
 	}
 	/**
-	 * ¾ßÌå´¦ÀíµÇÂ¼Âß¼­
+	 *
 	 * @param request
 	 * @param response
 	 * @return
@@ -47,24 +50,23 @@ public class IndexController extends BaseController{
 	@RequestMapping("/doTeaLogin")
 	public ModelAndView doTeaLogin(HttpServletRequest request,HttpServletResponse response){
 		ModelAndView errorView = new ModelAndView("redirect:/login");
-		String userId=request.getParameter("UserId");//»ñÈ¡´ÓÇ°¶Ë´«¹ıÀ´µÄÓÃ»§ÃûÖµ£¬Í¨¹ıÊı¾İ¿â²éÑ¯
-		String password=request.getParameter("password");//»ñÈ¡Ç°¶Ë´«À´µÄÃÜÂë
-		//ÕâÀïÓ¦¸Ã´¦ÀíTeacher±í£¬ÕâÀïÏÈ²âÊÔtes±í
+		String userId=request.getParameter("UserId");
+		String password=request.getParameter("password");
+		
 		test dbtest=getServiceManager().getTestUserService().getTestById(userId);
+		
 		if(dbtest==null || !dbtest.getPassword().equals(password) ){
-			
-			//·µ»Ø´íÎóÒ³Ãæ
+		
 			return errorView;
 		}else {
 			loginSuccess(request, dbtest);
 			String name=dbtest.getName();
-			return new ModelAndView("/home","name",name);//ÕâÀïÍ¬Ê±´«Öµ»ØÇ°¶Ë
+			return new ModelAndView("/home","name",name);
 		}
 		
 	}
 	private void loginSuccess(HttpServletRequest request,test test) {
-		//´¦ÀíµÇÂ¼ºóµÄÒ»Ğ©ĞÅÏ¢¸üĞÂµÈµÈ£¬×îÖØÒªµÄ»á»°±£´æ
-		
+		//å½“ç™»å½•æˆåŠŸæ—¶ï¼Œè®°å½•ç™»å½•çš„ç”¨æˆ·ä¿¡æ¯ã€‚
 		request.setAttribute("loginUser", test);
 	}
 	

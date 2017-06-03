@@ -24,7 +24,7 @@
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
-			<value>classpath*:config.properties</value>
+			<value>classpath:spring/config.properties</value>
 		</property>
 	</bean>
 	
@@ -35,16 +35,17 @@
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"  
 		init-method="init" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="${jdbc.url"/>
+		<property name="url" value="${jdbc.url}"/>
 		<property name="username" value="${jdbc.user}"/>
-		<property name="password" value="${jdbc.password}" />
+		<property name="password" value="${jdbc.password}"/>
 		
 		<!-- 属性类型是字符串，通过别名的方式配置扩展插件，
 		常用的插件有：
 		监控统计用的stat 日志用的log4j 防御sql注入的wall -->
 		<!-- -Ddruid.log.stmt.executableSql=true -->
+		<!--  
 		<property name="filters" value="stat,log4j"/>
-		
+		-->
 		<!-- 最大连接池数量 （最大并发连接数）-->
 		<property name="maxActive" value="20" />
 		
@@ -96,12 +97,16 @@
     	<!-- 关闭abanded连接时输出错误日志 -->
     	<property name="logAbandoned" value="true" />
 	</bean>
-	
+	<!--
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource">
 			<ref local="dataSource" />
 		</property>
 	</bean>
+	  -->
+	<!-- initialization 
+	<bean id="webUtil" class="com.homeedu.controller.WebUtil"/>
+	-->
 	
 
 </beans>

@@ -1,4 +1,4 @@
-package com.homeedu.contoller;
+package com.homeedu.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import com.homeedu.service.ServiceManager;
 
 
 public class BaseController {
+	
 	@Autowired
 	private ServiceManager serviceManager;
 	

@@ -10,19 +10,9 @@ import org.springframework.context.annotation.Bean;
 import com.alibaba.druid.pool.DruidDataSource;
 
 public class BaseDAO {
-
 	@Autowired
 	protected DataSource dataSource=null;
-	@Bean
-	public DataSource dataSource(){
-		DruidDataSource dataSource=new DruidDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/homeedu");
-		dataSource.setUsername("root");
-		dataSource.setPassword("512959970");
-		return dataSource;
-		
-	}
+
 	private QueryRunner qr=null;
 	public Connection getConnection(){
 		

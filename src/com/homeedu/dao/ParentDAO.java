@@ -1,11 +1,13 @@
 package com.homeedu.dao;
 
+import java.sql.SQLException;
+
+import org.springframework.stereotype.Service;
+
 import com.homeedu.entity.Parent;
 
 
-/*
- *关于家长数据库操作的具体类
- */
+@Service
 public class ParentDAO extends BaseDAO{
 
 	
@@ -18,9 +20,18 @@ public class ParentDAO extends BaseDAO{
 	public boolean addNewParent(Parent newPar){
 		
 		//add a new parent
-		
-		
-		return false;
+		try {
+			getQueryRunner().update("INSERT INTO parent "
+					+ "(id,name,password,id_num,province,city,district,telephone,level) VALUES " +
+					"(?,?,?,?,?,?,?,?,?)", 
+					newPar.getId(),newPar.getName(),newPar.getPassword(),newPar.getID_num(),
+					newPar.getProvince(),newPar.getCity(),newPar.getDistrict(),newPar.getTelephone(),newPar.getLevel());
+			return true;
+		} catch (SQLException e) {
+			
+			System.out.println(e);
+			return false;
+		}
 	}
 	
 }
