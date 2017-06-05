@@ -1,0 +1,265 @@
+html,body,span,form,head,ul,li,div,select,option{
+	margin:0;
+	padding:0;
+	font-family:"微软雅黑",Arial,Helvetica, sans-serif;
+}
+
+body{
+	/*background: rgb(179,168,150); 
+	background:-webkit-linear-gradient(top left,blue 0%, green 50%,red 100%); 
+	background:-moz-linear-gradient(top left,blue 0%, green 50%,red 100%); 
+	background:-o-linear-gradient(top left,blue 0%, green 50%,red 100%); */
+	background-color: #e0e0e0;
+	opacity: 0.7;
+}
+
+.label{
+	position: 	absolute;
+	color:rgb(131,175,155);
+	font-size: 25px;
+	font-weight: 	bold;
+	top:40px;
+	right:5px;
+	cursor: pointer;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	z-index: 	2;
+}
+
+.labelTopLeft{
+	top:30px;
+	right:8px;
+}
+.LoginRegister_Can{
+	position:relative;
+	margin: 0 auto;
+	top:100px;
+	width: 500px;
+	text-align: center;
+	background: #f9f9f9;
+	background:-webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background:-moz-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%); 
+	background:-o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	border:1px solid #c4c6ca;;
+	box-shadow: 0 1px 0 #fff inset;
+	border-radius: 5px;
+}
+.LoginRegister_Can:after,
+.LoginRegister_Can:before{
+	background: #f9f9f9;
+	background:-webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background:-moz-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%); 
+	background:-o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	border:1px solid #c4c6ca;;
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.LoginRegister_Can:after {
+	left:5px;
+	transform: rotate(2deg);
+	top: 0;
+	z-index: -1;
+}
+
+.LoginRegister_Can:before{
+	left:-5px;
+	transform: rotate(-3deg);
+	top: 0;
+	z-index: -2;
+}
+
+.title{
+	color:rgb(131,175,155);
+	text-align: left;
+	position:absolute;
+	font-size: 50px;
+	font-weight: bold;
+	cursor: default;
+	font-style: italic;
+	left:10%;
+	top:0px;
+}
+
+
+/*.LoginRegister_Tab li{
+	width: 50%;
+  float: left;
+  top:10px;
+  height:50px;
+  display:block;
+  text-align: center;
+  list-style: none;
+  line-height: 50px;
+  background:rgb(200,200,169);
+  color: #809191;
+}
+.LoginRegister_Tab:after {
+  content: "";
+  display: block;
+  clear: both;
+}*/
+
+.AccountSelect{
+	display: block;
+	text-align: right;
+	margin-right: 20%;
+	margin-bottom: 10px;
+	margin-top: 100px;	
+}
+select{
+	border-radius: 3px;
+	cursor: pointer;
+	box-shadow: 0 0.2px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	transition: all 0.5s ease;
+	border: 1px solid #c8c8c8;
+	color: #777;
+	padding: 5px 0px 5px 4%;
+	width: 20%;
+	font-size: 13px;
+	color: #111;
+	transition: all 0.3s ease;
+}
+select:hover{
+	width:25%;
+	padding-left:7%;
+}
+
+.input{
+	margin:0 auto 10px;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+	transition: all 0.5s ease;
+	border: 1px solid #c8c8c8;
+	color: #777;
+	font-family: "微软雅黑",Helvetica, Arial, sans-serif;
+	padding: 15px 10px 15px 10px;
+	width: 60%;
+}
+.input[type="text"]:hover,
+.input[type="password"]:hover{
+	width:70%;
+}
+.AutoLogin{
+	visibility:hidden;
+}
+.checkboxstyle {
+	width: 25px;
+	height: 25px;
+	position: relative;
+	margin-left: 20%;	
+} 
+.checkboxstyle label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+  	left: 0;
+	background: #eee;
+	border:1px solid #ddd;
+}
+.checkboxstyle label:after {
+	opacity: 0.2;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+ 
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+} 
+
+.checkboxstyle label:hover:after {
+	opacity: 0.6;
+}
+.checkboxstyle input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+.AutoLoginWords label:before{
+	content:"自动登录";	
+	display: block;
+	width:140px;
+	line-height:30px;
+}
+/*.AutoLogin { 
+    display: none; 
+} 
+ 
+.AutoLogin + label { 
+    background-color: #FFF;
+	border: 1px solid #C1CACA;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+	padding: 9px;
+	border-radius: 5px;
+	display: inline-block;
+	position: relative;
+	margin-right: 10px;
+
+} 
+.AutoLogin + label:active { 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1); 
+} 
+ 
+.AutoLogin:checked + label { 
+    background-color: #ECF2F7; 
+    border: 1px solid #92A1AC; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1); 
+    color: #243441; 
+} 
+ 
+.AutoLogin:checked + label:after { 
+    content: '\2714';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: #758794;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	padding: 1px 0 0 0;
+	vertical-align: middle; 
+} */
+span{
+	display:inline;
+	margin-right: 5px;
+}
+
+
+.button{
+	cursor: pointer;
+	box-shadow: 1px 1px 3px rgba(128,128,128,0.08);
+    background: #33b5e5;
+    width: 60%;
+    text-align: center;
+    color: white;
+    transition:all .5s ease;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+.button:hover {
+      background:#0080ff;
+      color:white;
+      width: 70%;
+ }

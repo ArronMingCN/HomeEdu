@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -21,6 +22,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.support.RequestContext;
+
+import com.homeedu.entity.Parent;
 
 //import com.gary.framework.core.Constants;
 //import com.gary.framework.entity.SysUser;
@@ -86,9 +89,13 @@ public class WebUtil implements ServletContextAware, InitializingBean{
 	 * 获取登陆用户
 	 * @return
 	 */
+	
+	public static Parent getLoginParentUser(){
+    	return (Parent) getSession().getAttribute("LOGIN_USER");
+    }
 	/*
-	public static SysUser getLoginSysUser(){
-    	return (SysUser) getSession().getAttribute(Constants.SESSION_LOGIN_USER);
+	public static Teacher getLoginSysUser(){
+    	return (Teacher) getSession().getAttribute("LOGIN_USER");
     }
     */
     /**

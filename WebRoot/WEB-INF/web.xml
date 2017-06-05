@@ -8,6 +8,9 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <session-config>
+      <session-timeout>15</session-timeout>
+  </session-config>
   <context-param>
   <param-name>contextConfigLocation</param-name>
   <param-value>classpath:spring/applicationContext.xml</param-value>
@@ -35,6 +38,10 @@
 <servlet-mapping>
      <servlet-name>default</servlet-name>
      <url-pattern>*.css</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+      <servlet-name>default</servlet-name>
+      <url-pattern>*.png</url-pattern>
 </servlet-mapping>
 
 <servlet-mapping>

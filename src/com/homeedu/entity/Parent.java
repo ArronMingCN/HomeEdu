@@ -2,29 +2,44 @@ package com.homeedu.entity;
 
 
 /**
- * ¼Ò³¤ÊµÌåÀà
+ * ï¿½Ò³ï¿½Êµï¿½ï¿½ï¿½ï¿½
  * @author Arron
  *
  */
 public class Parent {
 
-	Integer id;
+	String id;
 	String name;
 	String password;
-	Integer ID_num;
+	String ID_num;
 	String province;
 	String city;
 	String district;
-	Integer telephone;
+	String telephone;
 	Integer level;
 	public Parent(){
 		
 	}
 	
-	public Integer getId() {
+	public Parent(String newId, String name2, String password2, String id_num2,
+			String telephone2, Integer level2) {
+		this.id=newId;
+		this.name=name2;
+		this.password=password2;
+		this.ID_num=id_num2;
+		this.telephone=telephone2;
+		this.level=level2;
+		
+		this.city="";
+		this.district="";
+		this.province="";
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -39,10 +54,10 @@ public class Parent {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Integer getID_num() {
+	public String getID_num() {
 		return ID_num;
 	}
-	public void setID_num(Integer iD_num) {
+	public void setID_num(String iD_num) {
 		ID_num = iD_num;
 	}
 	public String getProvince() {
@@ -63,10 +78,10 @@ public class Parent {
 	public void setDistrict(String district) {
 		this.district = district;
 	}
-	public Integer getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
-	public void setTelephone(Integer telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 	public Integer getLevel() {
