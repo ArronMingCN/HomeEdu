@@ -8,6 +8,7 @@ import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.springframework.stereotype.Service;
+
 import com.homeedu.entity.Teacher;
 
 
@@ -15,8 +16,12 @@ import com.homeedu.entity.Teacher;
 @Service
 public class TeacherDAO extends BaseDAO{
 
-	
-	public List<Teacher> showAllTeachers(){
+	/**
+	 * 主页显示的teacher
+	 * @return
+	 */
+	public List<Teacher> getIndexShowTeachers(){
+
 		ResultSetHandler<List<Teacher>> rsh = new BeanListHandler<Teacher>(Teacher.class);
 		StringBuilder sqlBuilder=new StringBuilder();
 		sqlBuilder.append("SELECT * "

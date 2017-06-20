@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.homeedu.entity.Message;
 import com.homeedu.entity.Teacher;
 
 @Service
 public class TeacherService extends BaseService{
 	
 	public List<Teacher> showAllTeachers(){
-		return getDaoManager().getTeacherDAO().showAllTeachers();
+		return getDaoManager().getTeacherDAO().getIndexShowTeachers();
 	}
 	
 	/**
@@ -38,4 +39,9 @@ public class TeacherService extends BaseService{
 	public Teacher getTeacherById(String id){
 		return getDaoManager().getTeacherDAO().getTeacherById(id);
 	}
+	
+	public List<Teacher> getIndexShowTeachers(){
+		return getDaoManager().getTeacherDAO().getIndexShowTeachers();
+	}
 }
+

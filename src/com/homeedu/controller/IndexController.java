@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.homeedu.entity.Message;
+import com.homeedu.entity.Teacher;
 import com.homeedu.entity.test;
 
 @Controller
@@ -28,6 +29,8 @@ public class IndexController extends BaseController{
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response){
 		//System.out.print("this is in indexController:\n"+getServiceManager().getMessageService().getIndexShowMessages().toString());
 		List<Message> list=getServiceManager().getMessageService().getIndexShowMessages();
+		List<Teacher> listofTeachers=getServiceManager().getTeacherService().getIndexShowTeachers();
+		request.setAttribute("listOfTeachers", listofTeachers);
 		return new ModelAndView("/index","listOfMessages",list);
 	}
 	
