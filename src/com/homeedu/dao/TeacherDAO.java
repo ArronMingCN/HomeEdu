@@ -1,11 +1,15 @@
 package com.homeedu.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.springframework.stereotype.Service;
 
+import com.homeedu.entity.Message;
 import com.homeedu.entity.Teacher;
 import com.homeedu.entity.test;
 
@@ -13,7 +17,26 @@ import com.homeedu.entity.test;
 @Service
 public class TeacherDAO extends BaseDAO{
 
-	
+	/**
+	 * 主页显示的teacher
+	 * @return
+	 */
+	public List<Teacher> getIndexShowTeachers(){
+		ResultSetHandler<List<Teacher>> rsh = new BeanListHandler<Teacher>(Teacher.class);
+		StringBuilder sqlBuilder=new StringBuilder();
+		sqlBuilder.append("SELECT * "
+				+ " FROM teacher ORDER BY created_at desc");
+		List<Teacher> result = new ArrayList<>();
+		try {
+			result = getQueryRunner().query(sqlBuilder.toString(), rsh);
+			//System.out.print(result.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	return result;
+	}
 	
 	 /**
 	  * @author wang

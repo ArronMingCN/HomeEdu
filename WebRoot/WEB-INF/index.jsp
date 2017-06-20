@@ -274,7 +274,23 @@ if(par!=null){
 		<div class="case-contain animation-delay-300 animation-fadeInUp" id="Marquee_x" data-animate="fadeInUp">
 		<ul>
 			<li>
-
+<c:forEach items="${listOfTeachers}" var="list">
+			<div class="case-demo">
+				<a href="#">
+					<div class="case-demo-task"></div>
+					<img src="./upload/images/${list.getPortrait()}.jpg" width="130" height="150">
+				</a>
+				<div class="case-grid-rsp"></div>
+				<div class="case-demo-text">
+					<h4 class="case-demo-title">姓名&nbsp; ${list.getName()}<br>${list.getCreated_at()}
+					</h4><br>
+					<p class="case-demo-description">擅长科目：${list.getCourse1()}
+					</p>
+				</div>
+			</div>
+			
+</c:forEach>
+<!--  
 			<div class="case-demo">
 				<a href="#">
 					<div class="case-demo-task"></div>
@@ -341,6 +357,8 @@ if(par!=null){
 					<p class="case-demo-description">擅长科目：英语</p>
 				</div>
 			</div>
+			
+	-->
 			</li>
 		</ul>
 		</div>
