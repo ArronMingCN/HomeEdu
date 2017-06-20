@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 public class ServiceManager {
     @Autowired
 	private ParentService parentService;
-	
-	
+	@Autowired
+	private MessageService messageService;
 	@Autowired
 	private TestUserService testUserService;
-	
+	@Autowired
+	private TeacherService teacherService;
 	public TestUserService getTestUserService(){
 		return testUserService;
 	}
@@ -19,5 +20,11 @@ public class ServiceManager {
 	public ParentService getParentService(){
 		return parentService;
 	}
-	
+	public MessageService getMessageService(){
+		return messageService;
+	}
+	public TeacherService getTeacherService(){
+		return teacherService;
+	}
+
 }

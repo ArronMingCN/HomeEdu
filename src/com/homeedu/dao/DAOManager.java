@@ -13,11 +13,22 @@ public class DAOManager {
 	@Autowired
 	private ParentDAO parentDAO;
 	
+	@Autowired
+	private MessageDAO messageDAO;
+	@Autowired
+	private TeacherDAO teacherDAO;
 	public TestUserDAO getTestUserDAO(){
 		return testUserDAO;
 	}
 	
 	public ParentDAO getParentDAO(){
 		return parentDAO;
+	}
+	
+	public MessageDAO getMessageDAO(){
+		return messageDAO;
+	}	
+	public TeacherDAO getTeacherDAO(){
+		return teacherDAO;
 	}
 }

@@ -1,4 +1,4 @@
-<%@page language="java" import="java.util.*" import="com.homeedu.entity.Parent" pageEncoding="utf-8"%>
+<%@page language="java" import="java.util.*" import="com.homeedu.entity.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,8 +16,9 @@ if(par!=null){
 	url2="login_out";
 }
 %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -140,21 +141,46 @@ if(par!=null){
 		</div>
 	</div> 
 
-	<div id="server">
+
+  <div id="server">
+		<div class="server-title">最新学员</div>
+		<p class="server-description">——STUDENTS——</p>
+		<div class="server-contain">
+<c:forEach items="${listOfMessages}" var="list">
+
+			<div class="server-demo">
+				<div  class="server-demo-text">
+					<h4  class="server-demo-title">
+					<a href="showMessageDetail?id=${list.getId()}">访问具体</a>
+					￥${list.getSalary()}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list.getCourse1()}
+					</h4>
+					<p class="server-demo-address">${list.getTeach_location()}</p>
+					<p class="server-demo-description">
+					${list.getSurname()}发布&nbsp;&nbsp;&nbsp;&nbsp;${list.getCreated_at()}
+					</p>
+				</div>
+			</div>
+
+</c:forEach>
+			<div style="clear: both;"></div> 
+		</div>  
+	</div>
+<!-- 
+<div id="server">
 		<div class="server-title">最新学员</div>
 		<p class="server-description">——STUDENTS——</p>
 		<div class="server-contain">
 			<div class="server-demo">
 				<div class="server-demo-text">
 					<h4 class="server-demo-title">
-					￥450/小时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高中地理
+					
 					</h4>
 					<p class="server-demo-address">浑南新区</p>
 					<p class="server-demo-description">
 					赵女士发布&nbsp;&nbsp;&nbsp;&nbsp;2017-5-22
 					</p>
 				</div>
-			</div>
+		</div>
 			<div class="server-demo">
 				<div class="server-demo-text">
 					<h4 class="server-demo-title">
@@ -234,8 +260,9 @@ if(par!=null){
 			</div>
 
 			<div style="clear: both;"></div> 
-		</div>
+		</div>  
 	</div>
+	 -->
 	<div id="case">
 		<div class="animation-fade case-title" data-animate="fade">金牌教员</div>
 		<p class="case-description">

@@ -1,5 +1,7 @@
 package com.homeedu.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.homeedu.entity.Message;
 import com.homeedu.entity.test;
 
 @Controller
@@ -23,9 +26,11 @@ public class IndexController extends BaseController{
 	 */
 	@RequestMapping("/index")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response){
-		
-		return new ModelAndView("/index");
+		//System.out.print("this is in indexController:\n"+getServiceManager().getMessageService().getIndexShowMessages().toString());
+		List<Message> list=getServiceManager().getMessageService().getIndexShowMessages();
+		return new ModelAndView("/index","listOfMessages",list);
 	}
+	
 	
 	/**
 	 * @author Arron
@@ -38,12 +43,7 @@ public class IndexController extends BaseController{
 		ModelAndView loginPage=new ModelAndView("/LoginRegister");
 	return loginPage;
 	}
-	
-	@RequestMapping("/teacher_register")
-	public ModelAndView teacher_register(HttpServletRequest request,HttpServletResponse response){
-		
-		return new ModelAndView("");
-	}
+
 	
 	@RequestMapping("/login_out")
 	public ModelAndView login_out(HttpServletRequest request,HttpServletResponse response){

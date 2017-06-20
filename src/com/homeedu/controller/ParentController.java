@@ -39,7 +39,7 @@ public class ParentController extends BaseController{
 			return new ModelAndView("redirect:/LoginRegister");
 		}
 	}
-	@RequestMapping("parent_center")
+	@RequestMapping("/parent_center")
 	public ModelAndView parent_center(HttpServletRequest request,HttpServletResponse response){
 		if(request.getSession().getAttribute(SESSION_LOGIN_USER)==null){
 			return new ModelAndView("redirect:/student_login");
@@ -61,6 +61,7 @@ public class ParentController extends BaseController{
 		String telephone=request.getParameter("password");
 		Integer level=1;
 		Parent newParent=new Parent(newId,name,password,id_num,telephone,level);
+		
 		return new ModelAndView("");
 	}
 	
