@@ -1,3 +1,9 @@
+<%@page language="java" import="java.util.*" import="com.homeedu.entity.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,38 +94,22 @@
 						<th width="10%">性别</th>
 						<th width="10%">辅导方式</th>
 						<th width="20%">擅长科目</th>
-						<th width="20%">薪酬标准</th>
+					
 						<th width="15%">教员身份</th>
 						<th width="15%">加入时间</th>
 					</tr>
 				</tbody>
+				<c:forEach items="${listOfTeachers}" var="list">
 					<tr class="center-text table-line">
-						<td>赵学员</td>
-						<td>女</td>
-						<td>教员上门</td>
-						<td>高中物理</td>
-						<td>100元/1小时</td>
-						<td>本科在读</td>
-						<td>2017-5-31</td>
+						<td>${list.getName()}教员</td>
+						<td>${list.getGender()}</td>
+						<td>${list.getLocation()}</td>
+						<td>${list.getCourse1()}</td>
+				
+						<td>大学生</td>
+						<td>${list.getCreated_at()}</td>
 					</tr>
-					<tr class="center-text table-line">
-						<td>赵学员</td>
-						<td>女</td>
-						<td>双方协商</td>
-						<td>高中物理</td>
-						<td>可商议</td>
-						<td>本科在读</td>
-						<td>2017-5-31</td>
-					</tr>
-					<tr class="center-text table-line">
-						<td>赵学员</td>
-						<td>女</td>
-						<td>学员上门</td>
-						<td>高中物理</td>
-						<td>200元/1小时</td>
-						<td>培训机构老师</td>
-						<td>2017-5-31</td>
-					</tr>
+				</c:forEach>
 				</table>
 				<br><br>
 				<ul class="pager center-text" role="fanye"></ul>

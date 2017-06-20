@@ -1,0 +1,179 @@
+@charset "utf-8";
+*{
+   margin: 0px;
+   padding: 0px;
+   font-family: sans-serif;
+   list-style: none;
+   text-decoration: none;
+}
+html {
+   height: 100%;
+   font: 14px/1.5 "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Roboto, Arial, sans-serif;
+   color: #464646;
+}
+
+a {
+  text-decoration: none;
+  color: #464646;
+}
+
+.btn {
+   height: 34px;
+   line-height: 34px;
+   border-radius: 4px;
+   border: 0;
+   margin-top: 25px;
+   margin-bottom: 25px;
+   font-weight: 500;
+   margin-left: 36%;
+   padding: 4px 15px;
+   display: inline-block;
+   letter-spacing: .03em;
+   background-color: #d0d0d0;
+}
+
+.custom-table {
+   table-layout:fixed;
+}
+.custom-table tr {
+   height: 30px;
+   line-height: 30px;
+}
+.custom-table td {
+   word-wrap:break-word;
+}
+
+            
+      .rightdiv{
+         margin:0 auto;
+         position:relative;
+      }
+      .rightdiv:after,
+      .rightdiv:before{
+      background: #f9f9f9;
+      background:-webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+      background:-moz-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+      background:-o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+      background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+      border:1px solid #c4c6ca;;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      }
+      .rightdiv:after {
+      left:5px;
+      transform: rotate(2deg);
+      top: 0;
+      z-index: -1;
+      }
+      .rightdiv:before{
+      left:-5px;
+      transform: rotate(-3deg);
+      top: 0;
+      z-index: -2;
+      }
+      h1{
+         display:block;
+            position:relative;
+            left:5%;
+            margin:20px 0 0 5%;
+            font-style: italic;
+            line-height:1.5em;
+            overflow:visible;
+            font-size:30px;
+            color:#33b5e5;
+            text-shadow:#f3f3f3 1px 1px 0px, #b2b2b2 1px 2px 0;
+         }
+         .publishform{
+            position:relative;
+            margin:30px;
+            margin-top:10px;
+         }
+         .publishform span{
+            margin-left:10%;
+         }
+         .publishform .select{
+            margin-left: 30px;
+            margin-top: 20px;
+         border-radius: 3px;
+         cursor: pointer;
+         box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+         transition: all 0.5s ease;
+         border: 1px solid #c8c8c8;
+         color: #777;
+         padding: 8px 0px 8px 15%;
+         width: 50%;
+         font-size: 15px;
+            }
+      .publishform .select:hover{
+      width:60%;
+      padding-left:20%;
+      }
+      option{
+      font-size: 15px;
+      color:#96908f;
+      }
+      .publishform input{
+      margin-top: 20px;
+      margin-left:30px;
+      border-radius: 3px;
+      box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+      transition: all 0.5s ease;
+      border: 1px solid #c8c8c8;
+      color: #777;
+      font-family: "微软雅黑",Helvetica, Arial, sans-serif;
+      width: 50%;
+      padding: 10px 0px;
+      text-align: center;
+      font-size: 15px;
+      width: 50%;
+      }
+      .publishform input[type="text"]:hover
+      {
+         width:60%;
+      }
+      #salarystandardMoney{
+      width:18%;
+      }
+      #salarystandardTime{
+      width:18%;
+      margin-left: 0px;
+      border-radius: 3px;
+      cursor: pointer;
+      box-shadow: 0 0.2px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
+      transition: all 0.5s ease;
+      border: 1px solid #c8c8c8;
+      color: #777;
+      padding: 8px 0px 8px 6%;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      }
+      .submitdiv{
+      position: relative;
+      text-align: center;
+      width:100%;
+      }
+      input[type="submit"]{
+         cursor: pointer;
+         box-shadow: 1px 1px 3px rgba(128,128,128,0.08);
+         background: #33b5e5;
+         width: 50%;
+         text-align: center;
+         color: white;
+      transition:all .5s ease;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-left: 0;
+      margin-bottom: 20px;
+      }
+      input[type="submit"]:hover {
+      background:#0080ff;
+      color:white;
+      width: 60%;
+      }

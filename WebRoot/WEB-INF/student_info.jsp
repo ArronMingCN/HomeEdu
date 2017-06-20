@@ -1,3 +1,11 @@
+<%@page language="java" import="java.util.*" import="com.homeedu.entity.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
+
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +57,7 @@
 	</script>
 
 </head>
-<body onLoad="goPage(1,1)">
+<body onLoad="goPage(1,5)">
 	<nav class="nav-top">
 		<div class="nav-content">
 			<div class="nav-logo">HomeEdu</div>
@@ -86,24 +94,27 @@
 				<table width="100%" id="idData">
 				<tbody>
 					<tr class="table-line">
-						<th width="10%">姓名</th>
+						<th width="10%">家长称呼</th>
 						<th width="10%">辅导方式</th>
 						<th width="20%">辅导科目</th>
 						<th width="15%">辅导年级</th>
 						<th width="20%">薪酬标准</th>
 						<th width="15%">发布时间</th>
-						<th width="10%">状态</th>
+						<!--<th width="10%">状态</th>  -->
 					</tr>
 				</tbody>
+				<c:forEach items="${listOfMessages}" var="list">
 					<tr class="center-text table-line">
-						<td>赵学员</td>
-						<td>教员上门</td>
-						<td>高中物理</td>
-						<td>高中一年级</td>
-						<td>200元/1.5小时</td>
-						<td>2017-5-31</td>
-						<td>未安排</td>
+						<td>${list.getSurname()}</td>
+						<td>上门授课</td>
+						<td>${list.getCourse1()}</td>
+						<td>${list.getStudent_status()}</td>
+						<td>${list.getSalary()}</td>
+						<td>${list.getCreated_at()}</td>
+						<td><a href="showMessageDetail?id=${list.getId()}}">详细内容</a></td>
 					</tr>
+				</c:forEach>
+					<!-- 
 					<tr class="center-text table-line">
 						<td>赵学员</td>
 						<td>教员上门</td>
@@ -121,7 +132,7 @@
 						<td>200元/1.5小时</td>
 						<td>2017-5-31</td>
 						<td>超过时限</td>
-					</tr>
+					</tr> -->
 				</table>
 				<br><br>
 				<ul class="pager center-text" role="fanye"></ul>

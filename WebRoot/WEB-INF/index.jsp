@@ -93,8 +93,8 @@ if(par!=null){
 			<div class="nav-title">
 				<ul class="nav-title-list">
 					<li><a href="#">首页</a></li>
-					<li><a href="#">学员信息</a></li>
-					<li><a href="#">教员信息</a></li>
+					<li><a href="student_info">学员信息</a></li>
+					<li><a href="teacher_info">教员信息</a></li>
 					<li>
 					<a href="#">资讯中心</a>
 					<img src="./images/navsub.png">

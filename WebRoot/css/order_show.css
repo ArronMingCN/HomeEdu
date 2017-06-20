@@ -1,0 +1,85 @@
+.order-contain {
+	
+}
+.content {
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+
+.custom-table {
+	margin: 0 auto;
+}
+.custom-table tr{
+  color:#999;
+  line-height: 2.5;
+}
+.content-title{
+   text-align: center;
+   margin-bottom: 15px;
+   color: #323232;
+   font-size: 26px;
+   font-weight: 300;
+   text-align: center;
+   text-decoration-line: none;
+}
+.content-line1{
+   background: #ccc;
+   width: 80px;
+   height: 1px;
+   margin: 0 auto;
+}
+.content-line2{
+   background: #ccc;
+   width: 50px;
+   height: 1px;
+   margin: 0 auto;
+   margin-top: 3px;
+   margin-bottom: 16px;
+}
+.order-student {
+  float: left;
+}
+.title {
+  margin-bottom: 20px;
+}
+.title-line {
+  background: #33b5e5;
+  height: 35px;
+  width: 5px;
+}
+.title h3 {
+  padding: 8px;
+  margin-left: 10px;
+  margin-top: -40px;
+  font-size: 22px;
+  color: #666;
+}
+.order-teacher {
+  float: right;
+}
+.bottom {
+  color: #999;
+}
+.bottom a {
+  color: #33b5e5;
+}
+.btn {
+  text-align: center;
+  display: inline-block;
+  background: #33b5e5;
+  color: #fff !important;
+  margin-top: 25px;
+  font-size: 16px;
+  height: 45px;
+  line-height: 43px;
+  width: 150px;
+  border-radius: 10px;
+  margin-right: 10px;
+  transition: .3s;
+  -o-transition: .3s;
+  -moz-transition: .3s;
+  -webkit-transition: .3s;
+  text-decoration: none;
+}

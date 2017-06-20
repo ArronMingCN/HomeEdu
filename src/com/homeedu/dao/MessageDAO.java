@@ -11,10 +11,15 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.springframework.stereotype.Service;
 
 import com.homeedu.entity.Message;
+import com.homeedu.entity.Teacher;
 
 @Service
 public class MessageDAO extends BaseDAO{
 
+	/**
+	 * 获取首页展示需要的8条最新发布信息
+	 * @return
+	 */
 	public List<Message> getIndexShowMessages(){
 		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
 		StringBuilder sqlBuilder=new StringBuilder();
@@ -36,8 +41,45 @@ public class MessageDAO extends BaseDAO{
 			}
 	return list;
 	}
+	/**
+	 * 在学员页面展示所有的发布信息
+	 * @return
+	 */
+	public List<Message> getAllShowMessages(){
+		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
+		StringBuilder sqlBuilder=new StringBuilder();
+		sqlBuilder.append("SELECT * "
+				+ " FROM message ORDER BY created_at desc");
+		List<Message> result = new ArrayList<>();
+		try {
+			result = getQueryRunner().query(sqlBuilder.toString(), rsh);
+			//System.out.print(result.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	
+	return result;
+	}
 	
+	public Message getMessageById(String id){
+		ResultSetHandler<Message> rsh=new BeanHandler<Message>(Message.class);
+		Message dbMessage;
+		try{
+				StringBuilder sqlBuilder=new StringBuilder();
+			sqlBuilder.append("SELECT * FROM message WHERE id=?");
+
+				dbMessage=getQueryRunner().query(sqlBuilder.toString(),rsh,id);		
+				if(dbMessage==null){
+					return null;
+				}
+				return dbMessage;
+			}catch(SQLException e){
+				System.out.println(e);
+				return null;
+			}
+	}
 	
 	
 	/**

@@ -19,4 +19,15 @@ public class MessageService extends BaseService{
 	public List<Message> getIndexShowMessages(){
 		return getDaoManager().getMessageDAO().getIndexShowMessages();
 	}
+	/**
+	 * 获得所有发布消息的list
+	 * @return
+	 */
+	public List<Message> getAllShowMessages(){
+		return getDaoManager().getMessageDAO().getAllShowMessages();
+	}
+	
+	public Message getMessageById(String id){
+		return getDaoManager().getMessageDAO().getMessageById(id);
+	}
 }

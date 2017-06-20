@@ -1,5 +1,7 @@
 package com.homeedu.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,19 +16,36 @@ import com.homeedu.util.DateUtil;
 @Controller
 public class MessageController extends BaseController{
 
-	@RequestMapping()
-	public ModelAndView showMessages(){
-		
-		
-		
-		return new ModelAndView();
+	/**
+	 * 在学员页面展示所有的发布信息
+	 * @return
+	 */
+	@RequestMapping("student_info")
+	public ModelAndView showAllMessages(){
+		List<Message> list=getServiceManager().getMessageService().getAllShowMessages();
+		return new ModelAndView("/student_info","listOfMessages",list);
 	}
+	/**
+	 * 展示信息发布的详情页
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping("showMessageDetail")
 	public ModelAndView showDetailMessagePage(HttpServletRequest request,HttpServletResponse response){
-		
-		return new ModelAndView();
+		String id=request.getParameter("id");
+		Message dbMessage=getServiceManager().getMessageService().getMessageById(id);
+		if(dbMessage==null){
+			return new ModelAndView("errPage");
+		}
+		return new ModelAndView("/order_show","message",dbMessage);
 	}
-	
+	/**
+	 * 添加新的发布内容
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping("/addNewMessage")
 	public ModelAndView addNewMessage(HttpServletRequest request,HttpServletResponse response){
 		/*

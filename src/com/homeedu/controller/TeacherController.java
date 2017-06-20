@@ -1,5 +1,7 @@
 package com.homeedu.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,7 +16,15 @@ import com.homeedu.entity.Teacher;
 @Controller
 public class TeacherController extends BaseController{
 	
-	@RequestMapping("/teacher _login")
+	@RequestMapping("teacher_info")
+	public ModelAndView teacher_info(HttpServletRequest request,HttpServletResponse response){
+		
+		List<Teacher> list=getServiceManager().getTeacherService().showAllTeachers();
+		return new ModelAndView("teacher_info","listOfTeachers",list);
+	}
+	
+	
+	@RequestMapping("/teacher_login")
 	public ModelAndView parent_login(HttpServletRequest request,HttpServletResponse response){
 		
 		String newId=request.getParameter("user_id");
