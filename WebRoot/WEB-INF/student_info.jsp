@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="content-title">学员信息</div>
 			<div class="content-line1"></div>
 			<div class="content-line2"></div>
-			<button class="info_btn"><a href="#">我要发布</a></button>
+			<button class="info_btn"><a target="content" href="parent_center">家长发布</a></button>
 			<div class="custom-table">
 				<table width="100%" id="idData">
 				<tbody>

@@ -1,5 +1,8 @@
 package com.homeedu.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,11 +11,37 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.homeedu.entity.Message;
 import com.homeedu.entity.Parent;
+import com.homeedu.util.DateUtil;
 
 
 @Controller
 public class ParentController extends BaseController{
+	
+	@RequestMapping("confirmMessage")
+	public ModelAndView confirmMessage(HttpServletRequest request,HttpServletResponse response){
+		String errorNote="发生错误";
+		ModelAndView error=new ModelAndView("/errorPage","errorMessage",errorNote);
+		Parent loginParent=(Parent)request.getSession().getAttribute(SESSION_LOGIN_STUDENT);
+		if(loginParent==null){
+			errorNote="您没有登录";
+			return error;
+		}
+		/*
+		Integer msgId=Integer.getInteger(request.getParameter("msgId"));
+		String teacherId=request.getParameter("teacherId");
+		*/
+		Integer msgId=12;
+		String teacherId="liba";
+		String dealtime=DateUtil.getCurrentTimestamp().toString();
+		boolean a=getServiceManager().getMessageService().updateMessageConfirm(teacherId, msgId, dealtime);
+		boolean b=getServiceManager().getTeacherService().updateTeacherBook(msgId);
+		if((a==true)&&(b==true)){
+			return new ModelAndView("/student_profile");
+		}
+		return error;
+	}
 	
 	@RequestMapping("/student_login")
 	public ModelAndView parent_login(HttpServletRequest request,HttpServletResponse response){
@@ -42,28 +71,50 @@ public class ParentController extends BaseController{
 	}
 	@RequestMapping("/parent_center")
 	public ModelAndView parent_center(HttpServletRequest request,HttpServletResponse response){
-		if(request.getSession().getAttribute(SESSION_LOGIN_STUDENT)==null){
+		Parent par=(Parent)request.getSession().getAttribute(SESSION_LOGIN_STUDENT);
+		if(par==null){
 			return new ModelAndView("redirect:/student_login");
 		}
-		return new ModelAndView("/student_profile");
+		return new ModelAndView("/student_profile","parent",par);
+		
+	}	
+	@RequestMapping("/parentMessages")
+	public ModelAndView ParentMessages(HttpServletRequest request,HttpServletResponse response){
+		Parent par=(Parent)request.getSession().getAttribute(SESSION_LOGIN_STUDENT);
+		if(par==null){
+			return new ModelAndView("redirect:/student_login");
+		}
+		String parentId=par.getId();
+		List<Message> bookinglist=getServiceManager().getMessageService().getBookingMessagesByParentId(parentId);
+		List<Message> successlist=getServiceManager().getMessageService().getSuccesMessagesByParentId(parentId);
+		request.setAttribute("bookinglist", bookinglist);
+		request.setAttribute("successlist", successlist);
+		return new ModelAndView("/parent/parent_order","parent",par);
 		
 	}
 
+	/**
+	 * 家长注册
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping("/student_register")
 	public ModelAndView parent_register(HttpServletRequest request,HttpServletResponse response){
-		String newId=request.getParameter("UserId");
-		
+		String newId=request.getParameter("username");
 		if(getServiceManager().getParentService().isIdExists(newId)==true){
 			//已存在返回错误信息
 		}
+		String name=request.getParameter("name");
 		String password=request.getParameter("password");
-		String name=request.getParameter("password");
-		String id_num=request.getParameter("password");
-		String telephone=request.getParameter("password");
+		String id_num=request.getParameter("CardId");
+		String telephone=request.getParameter("Tele");
 		Integer level=1;
 		Parent newParent=new Parent(newId,name,password,id_num,telephone,level);
+		System.out.println(newParent.toString());
+		getServiceManager().getParentService().addNewParent(newParent);
 		
-		return new ModelAndView("");
+		return new ModelAndView("/LoginRegister");
 	}
 	
 	

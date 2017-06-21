@@ -22,7 +22,7 @@ public class Message {
 		String bookTeacher2;
 		String bookTeacher3;
 		String parent_id;
-		int flag;
+		Integer flag;
 		String teach_id;
 		String deal_time;
 		public Message(){

@@ -1,3 +1,10 @@
+<%@page language="java" import="java.util.*" import="com.homeedu.entity.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+//System.out.println(basePath);
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,46 +49,7 @@
 
 </head>
 <body onload="onload()">
-	<nav class="nav-top">
-		<div class="nav-content">
-			<div class="nav-logo">HomeEdu</div>
-			<div class="nav-title">
-				<ul class="nav-title-list">
-					<li><a href="#">首页</a></li>
-					<li><a href="#">学员信息</a></li>
-					<li><a href="#">教员信息</a></li>
-					<li>
-					<a href="#">资讯中心</a>
-					<img src="./images/navsub.png">
-						<div class="nav-sub">
-							<ul>
-								<li><a href="#">学习宝典</a></li>
-								<li><a href="#">名师指点</a></li>
-								<li><a href="#">家长课堂</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">关于我们</a></li>
-					<li><a href="#">联系我们</a></li>
-				</ul>
-			</div>
-			<div class="nav-sign-group">
-				<ul>
-					<li>
-						<div class="log-in">
-							<a href="info_add.html">赵女士</a>
-						</div>						
-					</li>
-					<li>
-						<div class="log-in">
-							<a href="Logout.html">注销</a>
-						</div>						
-					</li>
-				</ul>
-			</div>			
-			<div style="clear: both;"></div> 
-		</div>
-	</nav>
+	
 	<div class="contain">
 		<div class="content">
 			<div class="content-title">教员个人中心</div>
@@ -116,7 +84,7 @@
 			</div>
 			<div class="content-right">
 		<div class="rightdiv" style="display:block;">
-			<form class="publishform">
+			<form class="publishform"  method="POST" action="addNewMessage">
 				
 				<!--<span>辅导科目:</span>
 				<select id="teachsubject" class="select">

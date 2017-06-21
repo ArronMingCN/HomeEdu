@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -29,11 +29,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				{
 					var path = "student_register";
 					$('#Register').attr("action",path);
+					$('#CardId').css("display","");
 				}
 				if(value=="teacher")
 				{
 					var path = "teacher_register";
 					$('#Register').attr("action",path);
+					$('#CardId').css("display","none");
 				}
 			}
 	function checkForm(){
@@ -67,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><br>
 			<input type="submit" class="button" id="LoginSubmit" value="登   录">
 		</form>
-		<form class="form" style="display: none" id="Register" action="student_register" target="_parent">
+		<form class="form" style="display: none" method="post" id="Register" action="student_register" target="_parent">
 		<h2 class="title">Register</h2>
 		<div class="AccountSelect">
 			<span>账户类型：</span>
@@ -78,12 +80,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><br>
 			<span class="NoticeText" style="display:none"></span><br>
 			<input type="hidden" id="returnMsg" value="<%=request.getSession().getAttribute("returnMsg") %>">
-			<input type="text" class="input username" id="username" placeholder="请输入用户名"><br>
-			<input type="password" class="input password" id="password" placeholder="请输入密码"><br>
-			<input type="password" class="input password" id="passwordagain" placeholder="请再次输入密码"><br>
-			<input type="text" class="input CardId" id="CardId" placeholder="请输入身份证号"><br>
-			<input type="text" class="input Tele" id='Tele' placeholder="请输入电话号码"><br>
-			<input type="submit" class="button" id="RegisterSubmit" value="注  册">
+			<input type="text" class="input username" name="username" id="username" placeholder="请输入登录用户名"><br>
+			<input type="password" class="input password"  name="password" id="password" placeholder="请输入密码"><br>
+			<input type="password" class="input password"  name="passwordagain" id="passwordagain" placeholder="请再次输入密码"><br>
+			<input type="text" class="input"  name="name" id="name" placeholder="姓名"><br>			
+			<input type="text" class="input Tele"  name="Tele" id='Tele' placeholder="请输入电话号码"><br>
+			<input type="text" class="input CardId"  name="CardId" id="CardId" placeholder="请输入身份证号"><br>
+			<input type="submit" class="button"  id="RegisterSubmit" value="注  册">
 		</form>
 	</div>
 

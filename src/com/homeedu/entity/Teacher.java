@@ -56,26 +56,27 @@ public class Teacher {
 		this.province="";
 		// TODO Auto-generated constructor stub
 	}*/
-	public Teacher(String newId, String name2, String password2, String gender2
+	public Teacher(String newId, String name2, String password2, String Tele
 		) {
 		super();
 		this.id = newId;
 		this.name = name2;
 		this.password = password2;
-		this.gender = gender2;
+		this.telephone = Tele;
 		
+		this.portrait="000";
 		this.birth_year ="";
+		this.gender="";
 		this.birth_month = "";
 		this.sno = "";
-		this.telephone = "";
-		this.school = "";
-		this.major = "";
+		this.school = "暂无";
+		this.major = "暂无";
 		this.GPA = "";
 		this.portrait = "";
-		this.introduction = "";
+		this.introduction = "暂无";
 		this.level = 1;
-		this.course1 = "";
-		this.course2 = "";
+		this.course1 = "暂无";
+		this.course2 = "暂无";
 		this.course3 = "";
 		this.course4 = "";
 		this.course5 = "";

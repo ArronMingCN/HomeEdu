@@ -1,0 +1,62 @@
+body {
+	background-color: #fff;
+	color: #666;
+	font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* 代码整理：懒人之家 lanrenzhijia.com */
+
+header {
+	margin-bottom: 50px;
+}
+h1 {
+	font-size: 24px;
+	line-height: 1;
+	font-weight: bold;
+	color: #222;
+}
+h2 {
+	font-size: 16px;
+	font-weight: 300;
+	color: #777;
+}
+/* Navigation */
+
+.tab_nav {
+	position: relative;
+	margin-bottom: 20px;
+}
+#tabs {
+	overflow: hidden;
+	padding-bottom: 10px;
+	border-bottom: 5px solid #bbb;
+}
+#tabs li {
+	float: left;
+	margin-right: 35px;
+}
+#tabs li a {
+	color: #666;
+	font-weight: bold;
+}
+.tab_nav li a:hover, .tab_nav li a:focus, .tab_nav li a.current {
+	color: #000;
+}
+.tab_nav #indicator {
+	position: absolute;
+	left: 15px;
+	bottom: 5px;
+	width: 12px;
+	height: 7px;
+	background-image: url('../images/notch.png');
+}
+/* 代码整理：懒人之家 lanrenzhijia.com */
+
+#content section {
+	display: none;
+}
+#content p {
+	margin-bottom: 1em;
+	max-width: 50em;
+	line-height: 1.6;
+}
+/* 代码整理：懒人之家 lanrenzhijia.com */

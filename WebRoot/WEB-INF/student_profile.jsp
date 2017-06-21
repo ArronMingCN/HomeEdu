@@ -59,19 +59,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<table class="custom-table">
 					<tr>
 						<td>用户名：</td>
-						<td>猫的树</td>
+						<td>${parent.getId()}</td>
 					</tr>
-					
 					<tr>
-						<td>地址：</td>
-						<td>和平区</td>
+						<td>姓名：</td>
+						<td>${parent.getName() }家长</td>
 					</tr>
 				</table>
-				<a href="info_add.html" class="btn">修改信息</a>
+				<a target="content" href="parent_center" class="btn">发布</a>
+				<a target="content" href="parentMessages" class="btn">历史订单</a>
 			</div>
 			<div class="content-right">
 		<div class="rightdiv" style="display:block;">
-			<form class="publishform" method="POST" action="addNewMessage">
+			<form target="_parent" class="publishform" method="POST" action="addNewMessage">
 				<span>联系人:</span>
 				<input type="text" placeholder="如：王先生、黄女士" name="contactName"><br>
 				<span>辅导年级:</span>

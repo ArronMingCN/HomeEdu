@@ -10,13 +10,39 @@ import com.homeedu.entity.Teacher;
 @Service
 public class TeacherService extends BaseService{
 	
-	
-	
-	public boolean updateTeacherBookingId(Integer msgId,String teacherId,String bookingLeft){
-		return getDaoManager().getTeacherDAO().updateTeacherBookingId(msgId, teacherId, bookingLeft);
+	public boolean updatePartOfTeacher(Teacher ter){
+		return getDaoManager().getTeacherDAO().updatePartOfTeacher(ter);
 	}
 	
+	public List<Integer> getBooked(String teacherId){
+		return getDaoManager().getTeacherDAO().getBookId(teacherId);
+	}
 	
+	/**
+	 * 更新教员的预约信息，即删除预约
+	 * @param msgId
+	 * @return
+	 */
+	public boolean updateTeacherBook(Integer msgId){
+		return getDaoManager().getTeacherDAO().updateTeacherBook(msgId);
+	}
+	
+	/**
+	 * 更新教员剩余的预约的messageid
+	 * @param msgId
+	 * @param teacherId
+	 * @param bookingLeft
+	 * @return
+	 */
+	public boolean updateTeacherBooking1Id(Integer msgId,String teacherId){
+		return getDaoManager().getTeacherDAO().updateTeacherBooking1Id(msgId, teacherId);
+	}
+	public boolean updateTeacherBooking2Id(Integer msgId,String teacherId){
+		return getDaoManager().getTeacherDAO().updateTeacherBooking2Id(msgId, teacherId);
+	}
+	public boolean updateTeacherBooking3Id(Integer msgId,String teacherId){
+		return getDaoManager().getTeacherDAO().updateTeacherBooking3Id(msgId, teacherId);
+	}
 	
 	
 	/**

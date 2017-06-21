@@ -9,6 +9,52 @@ import com.homeedu.entity.Message;
 @Service
 public class MessageService extends BaseService{
 
+	/**
+	 * 获取预定的Msg列表 通过parentid
+	 * @param parentId
+	 * @return
+	 */
+	public List<Message> getBookingMessagesByParentId(String parentId){
+		return getDaoManager().getMessageDAO().getBookingMessagesByParentId(parentId);
+	}
+	/**
+	 * 通过parentid获取已完成的msgs
+	 * @param parentId
+	 * @return
+	 */
+	public List<Message> getSuccesMessagesByParentId(String parentId){
+		return getDaoManager().getMessageDAO().getSuccessMessagesByParentId(parentId);
+	}
+	
+	/**
+	 * 通过教员id获取成功的msg
+	 * @param teacherId
+	 * @return
+	 */
+	public List<Message> getSuccessOrderMessage(String teacherId){
+		return getDaoManager().getMessageDAO().getSuccessOrder(teacherId);
+	}
+	
+	/**
+	 * 获取教员的预约发布信息
+	 * @param list
+	 * @return
+	 */
+	public List<Message> getTeacherBookingMessages(List<Integer> list){
+		return getDaoManager().getMessageDAO().getBookId(list);
+	}
+	
+	
+	/**
+	 * 确认订单
+	 * @param teacherId
+	 * @param msgId
+	 * @param dealTime
+	 * @return
+	 */
+	public boolean updateMessageConfirm(String teacherId,Integer msgId,String dealTime){
+		return getDaoManager().getMessageDAO().updateMessageConfirm(teacherId, msgId, dealTime);
+	}
 	
 	/**
 	 * 更新发布msgId的bookingleft位置上的TeacherId即bookId
@@ -17,8 +63,14 @@ public class MessageService extends BaseService{
 	 * @param bookingLeft
 	 * @return
 	 */
-	public boolean updateMessageBookTeacherId(String teacherId,Integer msgId,String bookingLeft){
-		return getDaoManager().getMessageDAO().updateMessageBookId(teacherId, msgId, bookingLeft);
+	public boolean updateMessageBookTeacher1Id(String teacherId,Integer msgId){
+		return getDaoManager().getMessageDAO().updateMessageBook1Id(teacherId, msgId);
+	}
+	public boolean updateMessageBookTeacher2Id(String teacherId,Integer msgId){
+		return getDaoManager().getMessageDAO().updateMessageBook2Id(teacherId, msgId);
+	}
+	public boolean updateMessageBookTeacher3Id(String teacherId,Integer msgId){
+		return getDaoManager().getMessageDAO().updateMessageBook3Id(teacherId, msgId);
 	}
 	
 	

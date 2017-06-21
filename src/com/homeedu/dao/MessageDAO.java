@@ -16,17 +16,98 @@ import com.homeedu.entity.Teacher;
 @Service
 public class MessageDAO extends BaseDAO{
 
+	
+	public List<Message> getSuccessMessagesByParentId(String parentId){
+		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
+		StringBuilder sqlBuilder=new StringBuilder();
+		sqlBuilder.append("SELECT * "
+				+ " FROM message where parent_id=? and flag=1");
+		List<Message> result = new ArrayList<>();
+		try {
+			result = getQueryRunner().query(sqlBuilder.toString(), rsh,parentId);
+			//System.out.print(result.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	return result;
+	}
+	
+	public List<Message> getBookingMessagesByParentId(String parentId){
+		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
+		StringBuilder sqlBuilder=new StringBuilder();
+		sqlBuilder.append("SELECT * "
+				+ " FROM message where parent_id=? and flag=0");
+		List<Message> result = new ArrayList<>();
+		try {
+			result = getQueryRunner().query(sqlBuilder.toString(), rsh,parentId);
+			//System.out.print(result.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	return result;
+	}
+	
 	/**
-	 * 更新发布msgId的bookingleft位置上的TeacherId即bookId
-	 * @param bookId
-	 * @param msgId
-	 * @param bookingLeft
+	 * 获取教员成功的订单
+	 * @param teacherId
 	 * @return
 	 */
-	public boolean updateMessageBookId(String bookId,Integer msgId,String bookingLeft){
+	public List<Message> getSuccessOrder(String teacherId){
+		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
+		StringBuilder sqlBuilder=new StringBuilder();
+		sqlBuilder.append("SELECT * "
+				+ " FROM message where teach_id=?");
+		List<Message> result = new ArrayList<>();
 		try {
-			getQueryRunner().update("UPDATE message SET ?=? WHERE id=?", 
-					new Object[]{bookingLeft,bookId ,msgId});
+			result = getQueryRunner().query(sqlBuilder.toString(), rsh,teacherId);
+			//System.out.print(result.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	return result;
+	}
+	
+	/**
+	 * 获取教员的预约项
+	 * @param list
+	 * @return
+	 */
+	public List<Message> getBookId(List<Integer> list){
+		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
+		StringBuilder sqlBuilder=new StringBuilder();
+		sqlBuilder.append("SELECT * "
+				+ " FROM message where id=? or id=? or id=?");
+		List<Message> result = new ArrayList<>();
+		try {
+			result = getQueryRunner().query(sqlBuilder.toString(), rsh,new Object[]{list.get(0) ,list.get(1),list.get(2)});
+			//System.out.print(result.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	return result;
+	}
+	
+	
+	
+	
+	/**
+	 * 确定订单的教员
+	 * @param teacherId
+	 * @param msgId
+	 * @return
+	 */
+	public boolean updateMessageConfirm(String teacherId,Integer msgId,String dealTime){
+		try {
+			getQueryRunner().update("UPDATE message SET teach_id=?,flag=1,deal_time=? WHERE id=?", 
+					new Object[]{teacherId,dealTime,msgId});
 		} catch (SQLException e) {
 			System.out.println(e);
 			return false;
@@ -34,6 +115,46 @@ public class MessageDAO extends BaseDAO{
 		return true;
 	}
 	
+	
+	
+	
+	/**
+	 * 更新发布msgId的bookingleft位置上的TeacherId即bookId
+	 * @param bookId
+	 * @param msgId
+	 * @param bookingLeft
+	 * @return
+	 */
+	public boolean updateMessageBook1Id(String bookId,Integer msgId){
+		try {
+			getQueryRunner().update("UPDATE message SET bookTeacher1=? WHERE id=?", 
+					new Object[]{bookId ,msgId});
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+	public boolean updateMessageBook2Id(String bookId,Integer msgId){
+		try {
+			getQueryRunner().update("UPDATE message SET bookTeacher2=? WHERE id=?", 
+					new Object[]{bookId ,msgId});
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}	
+	public boolean updateMessageBook3Id(String bookId,Integer msgId){
+		try {
+			getQueryRunner().update("UPDATE message SET bookTeacher3=? WHERE id=?", 
+					new Object[]{bookId ,msgId});
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
 	
 	
 	/**
@@ -44,7 +165,7 @@ public class MessageDAO extends BaseDAO{
 		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
 		StringBuilder sqlBuilder=new StringBuilder();
 		sqlBuilder.append("SELECT * "
-				+ " FROM message ORDER BY created_at desc");
+				+ " FROM message WHERE flag=0 ORDER BY created_at desc");
 		List<Message> result = new ArrayList<>();
 		try {
 			result = getQueryRunner().query(sqlBuilder.toString(), rsh);
@@ -69,7 +190,7 @@ public class MessageDAO extends BaseDAO{
 		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);
 		StringBuilder sqlBuilder=new StringBuilder();
 		sqlBuilder.append("SELECT * "
-				+ " FROM message ORDER BY created_at desc");
+				+ " FROM message WHERE flag=0 ORDER BY created_at desc");
 		List<Message> result = new ArrayList<>();
 		try {
 			result = getQueryRunner().query(sqlBuilder.toString(), rsh);

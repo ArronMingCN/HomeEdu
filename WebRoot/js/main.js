@@ -35,20 +35,6 @@ $('#Tele').blur(function(){
 	if(!Tele.test($(this).val()))
 	{
 		$(this).css('border','1px solid red');
-		CardId_ok=false;
-	}
-	else
-	{
-		$(this).css('border','1px solid #c8c8c8');
-		CardId_ok=true;
-	}
-});
-
-$('#CardId').blur(function(){
-	var CardId=/(^\d{15}$)|(^\d{17}(\d|x|X)$)/;
-	if(!CardId.test($(this).val()))
-	{
-		$(this).css('border','1px solid red');
 		Tele_ok=false;
 	}
 	else
@@ -58,8 +44,9 @@ $('#CardId').blur(function(){
 	}
 });
 
+
 $('#RegisterSubmit').click(function(){
-                    if(password_ok && Tele_ok && CardId_ok&& ($('#username').val()!="") &&($('#password').val()!="")&&($('#passwordagain').val()!="")) {
+                    if(password_ok&&Tele_ok&& ($('#username').val()!="") &&($('#password').val()!="")&&($('#passwordagain').val()!="")) {
                     	
                         $('form').submit();
                     }

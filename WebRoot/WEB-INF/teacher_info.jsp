@@ -74,7 +74,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</tbody>
 				<c:forEach items="${listOfTeachers}" var="list">
-					<tr class="center-text table-line">
+					<tr onclick="window.location.href='showTeacherDetail?id=${list.getId()}'"
+					 class="center-text table-line">
 						<td>${list.getName()}教员</td>
 						<td>${list.getGender()}</td>
 						<td>${list.getTeach_type()}</td>

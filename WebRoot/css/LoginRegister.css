@@ -9,12 +9,8 @@ body{
 	background:-webkit-linear-gradient(top left,blue 0%, green 50%,red 100%); 
 	background:-moz-linear-gradient(top left,blue 0%, green 50%,red 100%); 
 	background:-o-linear-gradient(top left,blue 0%, green 50%,red 100%); */
-	background-image: url("background10.png");
+	background-color: #e0e0e0;
 	opacity: 0.7;
-}
-.NoticeText{
-	color: red;
-	font-size: 12px;
 }
 
 .label{
@@ -38,7 +34,7 @@ body{
 }
 .LoginRegister_Can{
 	position:relative;
-	left:600px;
+	margin: 0 auto;
 	top:100px;
 	width: 500px;
 	text-align: center;
@@ -128,7 +124,7 @@ select{
 	padding: 5px 0px 5px 4%;
 	width: 20%;
 	font-size: 13px;
-	text-shadow: 1px 2px 1px 3px black;
+	color: #111;
 	transition: all 0.3s ease;
 }
 select:hover{

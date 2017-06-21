@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.springframework.stereotype.Service;
 
 import com.homeedu.entity.Teacher;
@@ -17,11 +18,105 @@ import com.homeedu.entity.Teacher;
 public class TeacherDAO extends BaseDAO{
 
 	
-	 
-	public boolean updateTeacherBookingId(Integer msgId,String teacherId,String bookingLeft){
+	public boolean updatePartOfTeacher(Teacher ter){
 		try {
-			getQueryRunner().update("UPDATE teacher SET ?=? WHERE id=?", 
-					new Object[]{bookingLeft,msgId ,teacherId});
+			getQueryRunner().update("UPDATE teacher SET school=?,major=?,gpa=?"
+					+ ",introduction=?,course1=? WHERE id=?", 
+					new Object[]{ter.getSchool(),ter.getMajor(),ter.getGPA()
+							,ter.getIntroduction(),ter.getCourse1(),ter.getId()});
+			
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 获取教员预约的id
+	 * @param teacherId
+	 * @return
+	 */
+	public List<Integer> getBookId(String teacherId){
+		List<Integer> list=new ArrayList<Integer>();
+		Integer id1=0,id2=0,id3=0;
+		try{
+			id1=getQueryRunner().query("SELECT bookMessage1 FROM teacher WHERE id=?", new ScalarHandler<Integer>(),teacherId);
+			if(id1!=null){
+				System.out.print(id1);
+
+			}
+			id2=getQueryRunner().query("SELECT bookMessage2 FROM teacher WHERE id=?", new ScalarHandler<Integer>(),teacherId);
+			if(id2!=null){
+				System.out.print(id1);
+				
+			}
+			id3=getQueryRunner().query("SELECT bookMessage3 FROM teacher WHERE id=?", new ScalarHandler<Integer>(),teacherId);
+			if(id3!=null){
+				System.out.print(id1);
+				
+			}			
+			list.add(id1);list.add(id2);list.add(id3);
+		}catch(SQLException e){
+			System.out.println(e);
+			return null;
+		}
+		return list;
+		
+	
+	}
+	
+	/**
+	 * 更新教员的预约
+	 * @param msgId
+	 * @return
+	 */
+	public boolean updateTeacherBook(Integer msgId){
+		try {
+			getQueryRunner().update("update teacher SET bookMessage1=null WHERE bookMessage1=?", 
+					new Object[]{msgId });
+			getQueryRunner().update("update teacher SET bookMessage2=null WHERE bookMessage2=? ", 
+					new Object[]{msgId });
+			getQueryRunner().update("update teacher SET bookMessage3=null WHERE bookMessage3=?", 
+					new Object[]{msgId });
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+	
+	
+	 /**
+	  * 更新教员的预约项，通过传来的具体位置
+	  * @param msgId
+	  * @param teacherId
+	  * @return
+	  */
+	public boolean updateTeacherBooking1Id(Integer msgId,String teacherId){
+		try {
+			getQueryRunner().update("UPDATE teacher SET bookMessage1=? WHERE id=?", 
+					new Object[]{msgId ,teacherId});
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+	public boolean updateTeacherBooking2Id(Integer msgId,String teacherId){
+		try {
+			getQueryRunner().update("UPDATE teacher SET bookMessage2=? WHERE id=?", 
+					new Object[]{msgId ,teacherId});
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+	public boolean updateTeacherBooking3Id(Integer msgId,String teacherId){
+		try {
+			getQueryRunner().update("UPDATE teacher SET bookMessage3=? WHERE id=?", 
+					new Object[]{msgId ,teacherId});
 		} catch (SQLException e) {
 			System.out.println(e);
 			return false;

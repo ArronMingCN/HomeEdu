@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<table>
 							<tr>
 								<td>订单编号：</td>
-								<td>${message.getId()+100}</td>
+								<td>N${message.getId()+100}</td>
 							</tr>
 							<tr>
 								<td>联系人：</td>
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 				<div class="bottom">
-					<a href="bookMessage?id=${message.getId()}" class="btn">在线预约</a>
+					<a target="_parent" href="bookMessage?id=${message.getId()}" class="btn">在线预约</a>
 					<br><br>不是东大家教网老师？
 					<a target="_parent" href="LoginRegister">马上去注册</a>
 				</div>
