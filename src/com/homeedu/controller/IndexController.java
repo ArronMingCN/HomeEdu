@@ -18,6 +18,17 @@ import com.homeedu.entity.test;
 public class IndexController extends BaseController{
 
 	
+	
+	@RequestMapping("/index")
+	public ModelAndView index(HttpServletRequest request,HttpServletResponse response){
+		return new ModelAndView("/index");
+	}
+	
+	@RequestMapping("/top")
+	public ModelAndView top(HttpServletRequest request,HttpServletResponse response){
+		return new ModelAndView("/top");
+	}
+	
 	/**
 	 * 主页
 	 * @author Arron
@@ -25,13 +36,13 @@ public class IndexController extends BaseController{
 	 * @param response
 	 * @return
 	 */
-	@RequestMapping("/index")
+	@RequestMapping("/mainPage")
 	public ModelAndView mainPage(HttpServletRequest request,HttpServletResponse response){
 		//System.out.print("this is in indexController:\n"+getServiceManager().getMessageService().getIndexShowMessages().toString());
 		List<Message> list=getServiceManager().getMessageService().getIndexShowMessages();
 		List<Teacher> listofTeachers=getServiceManager().getTeacherService().getIndexShowTeachers();
 		request.setAttribute("listOfTeachers", listofTeachers);
-		return new ModelAndView("/index","listOfMessages",list);
+		return new ModelAndView("/mainPage","listOfMessages",list);
 	}
 	
 	

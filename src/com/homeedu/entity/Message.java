@@ -17,6 +17,14 @@ public class Message {
 		String salary;
 		String teach_request;
 		String created_at;
+		String teach_type;
+		String bookTeacher1;
+		String bookTeacher2;
+		String bookTeacher3;
+		String parent_id;
+		int flag;
+		String teach_id;
+		String deal_time;
 		public Message(){
 			
 		}
@@ -24,16 +32,15 @@ public class Message {
 		
 	
 
-		public Message(String surname, String course1, String course2,
-				String course3, String student_gender, String student_grade,
+	
+
+		public Message(String surname, String course1,String student_gender, String student_grade,
 				String student_status, String teach_gender,
-				String teach_location, String teach_time, String salary,
-				String teach_request) {
+				String teach_location, String teach_time, String salary,String teach_request,
+				String teach_type,String parent_id) {
 			super();
 			this.surname = surname;
 			this.course1 = course1;
-			this.course2 = course2;
-			this.course3 = course3;
 			this.student_gender = student_gender;
 			this.student_grade = student_grade;
 			this.student_status = student_status;
@@ -42,10 +49,17 @@ public class Message {
 			this.teach_time = teach_time;
 			this.salary = salary;
 			this.teach_request = teach_request;
+			this.teach_type=teach_type;
+			this.parent_id=parent_id;
+			
+			this.flag=0;
+			this.course2 ="";
+			this.course3 ="";
 			this.created_at=DateUtil.getCurrentTimestamp().toString();
 		}
 
 
+	
 
 		@Override
 		public String toString() {
@@ -53,10 +67,15 @@ public class Message {
 					+ course1 + ", course2=" + course2 + ", course3=" + course3
 					+ ", student_gender=" + student_gender + ", student_grade="
 					+ student_grade + ", student_status=" + student_status
-					+ ", teach_gender=" + teach_gender + ", teach_locarion="
-					+ teach_location + ", teach_time=" + teach_time + ", salary="
-					+ salary + ", teach_request=" + teach_request + "]";
+					+ ", teach_gender=" + teach_gender + ", teach_location="
+					+ teach_location + ", teach_time=" + teach_time
+					+ ", salary=" + salary + ", teach_request=" + teach_request
+					+ ", created_at=" + created_at + ", teach_type="
+					+ teach_type + "]";
 		}
+
+
+
 
 		public Integer getId() {
 			return id;
@@ -164,10 +183,97 @@ public class Message {
 		public String getCreated_at() {
 			return created_at;
 		}
-
-
 		public void setCreated_at(String created_at) {
 			this.created_at = created_at;
+		}
+
+
+
+
+		public String getTeach_type() {
+			return teach_type;
+		}
+		public void setTeach_type(String teach_type) {
+			this.teach_type = teach_type;
+		}
+		public String getBookTeacher1() {
+			return bookTeacher1;
+		}
+
+		public void setBookTeacher1(String bookTeacher1) {
+			this.bookTeacher1 = bookTeacher1;
+		}
+
+		public String getBookTeacher2() {
+			return bookTeacher2;
+		}
+		public void setBookTeacher2(String bookTeacher2) {
+			this.bookTeacher2 = bookTeacher2;
+		}
+
+		public String getBookTeacher3() {
+			return bookTeacher3;
+		}
+
+		public void setBookTeacher3(String bookTeacher3) {
+			this.bookTeacher3 = bookTeacher3;
+		}
+
+		public String getParent_id() {
+			return parent_id;
+		}
+
+		public void setParent_id(String parent_id) {
+			this.parent_id = parent_id;
+		}
+
+		public int getFlag() {
+			return flag;
+		}
+
+
+
+
+
+
+		public void setFlag(int flag) {
+			this.flag = flag;
+		}
+
+
+
+
+
+
+		public String getTeach_id() {
+			return teach_id;
+		}
+
+
+
+
+
+
+		public void setTeach_id(String teach_id) {
+			this.teach_id = teach_id;
+		}
+
+
+
+
+
+
+		public String getDeal_time() {
+			return deal_time;
+		}
+
+
+
+
+
+
+		public void setDeal_time(String deal_time) {
+			this.deal_time = deal_time;
 		}
 
 		

@@ -10,7 +10,8 @@ import com.homeedu.util.WebUtil;
 
 public class BaseController {
 
-	public static final String SESSION_LOGIN_USER = "LOGIN_USER";
+	public static final String SESSION_LOGIN_TEACHER = "LOGIN_TEACHER";
+	public static final String SESSION_LOGIN_STUDENT = "LOGIN_STUDENT";
 	private static final String RETURN_MSG = "returnMsg";
 	//商品图片根路径
 	public static final String Teacher_IMAGES_PATH = "upload" + File.separator + "teacher_imgs" + File.separator;

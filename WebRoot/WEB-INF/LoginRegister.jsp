@@ -9,23 +9,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta charset="utf-8">
 	<title>LoginRegister</title>
 	<link rel="stylesheet" type="text/css" href="./css/LoginRegister.css">
-	<script src="./js/jquery.min.js"></script>
-	<script type="text/javascript">
-		
-		$(function(){
-			$('.label').click(function(){
-			  if($(this).text()=="Login")
-			  	$(this).text("Register");
-			  else
-			  	$(this).text("Login");
-			  $(this).toggleClass ("labelTopLeft");
-			  $('.form').animate({
-			    height: "toggle", 	
-			    opacity: "toggle"
-			  }, "slow");
-			});
-		})
-		
+		<script type="text/javascript">
+			function identy_login(value)
+			{
+				if(value=="student")
+				{
+					var path = "student_login";
+					$('#Login').attr("action",path);
+				}
+				if(value=="teacher")
+				{
+					var path = "teacher_login";
+					$('#Login').attr("action",path);
+				}
+			}
+			function identy_register(value)
+			{
+				if(value=="student")
+				{
+					var path = "student_register";
+					$('#Register').attr("action",path);
+				}
+				if(value=="teacher")
+				{
+					var path = "teacher_register";
+					$('#Register').attr("action",path);
+				}
+			}
 	function checkForm(){
      var flag=true;
      var message=student_login.returnMsg.value;
@@ -35,49 +45,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      }
      return flag;
     }
-	
-	</script>
-	<script type="text/javascript">
-			function identy_login(value)
-			{
-				if(value==0)
-				{
-					var path = "student_login";
-					$('.login').attr("action",path);
-				}
-				if(value==1)
-				{
-					var path = "teacher_login";
-					$('.login').attr("action",path);
-				}
-			}
-			function identy_register(value)
-			{
-				if(value==0)
-				{
-					var path = "student_register.";
-					$('.login').attr("action",path);
-				}
-				if(value==1)
-				{
-					var path = "teacher_register";
-					$('.login').attr("action",path);
-				}
-			}
 	</script>
 </head>
 <body onload="checkForm()">
-
 	<div class="LoginRegister_Can">
 		<div class="label">Register</div>
-		<form id="student_login" class="form login" action="student_login" style="display: block" method="POST">
-		<input type="hidden" id="returnMsg" value="<%=request.getSession().getAttribute("returnMsg") %>">
+		<form class="form login" Method="post" id="Login" action="student_login" style="display: block">
 		<h2 class="title">Login</h2>
 		<div class="AccountSelect">
 			<span>账户类型：</span>
-			<select class="identy_select">
-				<option name="identy" value="student" onclick="identy_login(0)">学 员</option>
-				<option name="identy" value="teacher" onclick="identy_login(1)">教 员</option>
+			<select class="identy_select" checked="checked"  onchange="identy_login(this.options[this.options.selectedIndex].value)">
+				<option name="identy" value="student" >学 生</option>
+				<option name="identy" value="teacher" >教 员</option>
 			</select>
 		</div><br>
 			<input type="text" class="input username" placeholder="请输入用户名" name="user_id"><br>
@@ -86,24 +65,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="checkbox" class="AutoLogin" id="AutoLoginCheckBox">
 			<label for="AutoLoginCheckBox"></label> 
 			</div><br>
-			<input type="submit" class="button" value="登   录">
+			<input type="submit" class="button" id="LoginSubmit" value="登   录">
 		</form>
-		<form class="form register" action="student_register" style="display: none" method="POST">
+		<form class="form" style="display: none" id="Register" action="student_register" target="_parent">
 		<h2 class="title">Register</h2>
 		<div class="AccountSelect">
 			<span>账户类型：</span>
-			<select class="identy_select">
-				<option name="identy" value="student" checked="checked" onclick="identy_register(0)">学 员</option>
-				<option name="identy" value="teacher" onclick="identy_register(1)">教 员</option>
+			<select class="identy_select" onchange="identy_register(this.options[this.options.selectedIndex].value)">
+				<option name="identy" value="student" checked="checked" >学 生</option>
+				<option name="identy" value="teacher" >教 员</option>
 			</select>
 			</div><br>
-			<input type="text" class="input username" placeholder="请输入用户名" name="id"><br>
-			<input type="password" class="input password" placeholder="请输入密码"><br>
-			<input type="password" class="input password" placeholder="请再次输入密码"><br>
-			<input type="text" class="input CardId" placeholder="请输入身份证号"><br>
-			<input type="text" class="input Tele" placeholder="请输入电话号码"><br>
-			<input type="submit" class="button " value="注  册">
+			<span class="NoticeText" style="display:none"></span><br>
+			<input type="hidden" id="returnMsg" value="<%=request.getSession().getAttribute("returnMsg") %>">
+			<input type="text" class="input username" id="username" placeholder="请输入用户名"><br>
+			<input type="password" class="input password" id="password" placeholder="请输入密码"><br>
+			<input type="password" class="input password" id="passwordagain" placeholder="请再次输入密码"><br>
+			<input type="text" class="input CardId" id="CardId" placeholder="请输入身份证号"><br>
+			<input type="text" class="input Tele" id='Tele' placeholder="请输入电话号码"><br>
+			<input type="submit" class="button" id="RegisterSubmit" value="注  册">
 		</form>
 	</div>
 
+<script  src="./js/jquery-3.2.1.min.js"></script>
+<script  src="./js/main.js"></script>
 </body>

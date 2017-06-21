@@ -13,6 +13,9 @@ public class ServiceManager {
 	private TestUserService testUserService;
 	@Autowired
 	private TeacherService teacherService;
+	@Autowired
+	private OrderService orderService;
+	
 	public TestUserService getTestUserService(){
 		return testUserService;
 	}
@@ -25,6 +28,9 @@ public class ServiceManager {
 	}
 	public TeacherService getTeacherService(){
 		return teacherService;
+	}
+	public OrderService getOrderService(){
+		return orderService;
 	}
 
 }

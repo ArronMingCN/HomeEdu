@@ -55,32 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <body onLoad="goPage(1,2)">
-	<nav class="nav-top">
-		<div class="nav-content">
-			<div class="nav-logo">HomeEdu</div>
-			<div class="nav-title">
-				<ul class="nav-title-list">
-					<li><a href="#">首页</a></li>
-					<li><a href="#">学员信息</a></li>
-					<li><a href="#">教员信息</a></li>
-					<li>
-					<a href="#">资讯中心</a>
-					<img src="./images/navsub.png">
-						<div class="nav-sub">
-							<ul>
-								<li><a href="#">学习宝典</a></li>
-								<li><a href="#">名师指点</a></li>
-								<li><a href="#">家长课堂</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">关于我们</a></li>
-					<li><a href="#">联系我们</a></li>
-				</ul>
-			</div>		
-			<div style="clear: both;"></div> 
-		</div>
-	</nav>
+	
 	<div class="contain">
 		<div class="content">
 			<div class="content-title">教员信息</div>
@@ -94,7 +69,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th width="10%">性别</th>
 						<th width="10%">辅导方式</th>
 						<th width="20%">擅长科目</th>
-					
 						<th width="15%">教员身份</th>
 						<th width="15%">加入时间</th>
 					</tr>
@@ -103,9 +77,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr class="center-text table-line">
 						<td>${list.getName()}教员</td>
 						<td>${list.getGender()}</td>
-						<td>${list.getLocation()}</td>
+						<td>${list.getTeach_type()}</td>
 						<td>${list.getCourse1()}</td>
-				
 						<td>大学生</td>
 						<td>${list.getCreated_at()}</td>
 					</tr>

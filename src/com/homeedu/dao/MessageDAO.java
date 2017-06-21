@@ -17,6 +17,26 @@ import com.homeedu.entity.Teacher;
 public class MessageDAO extends BaseDAO{
 
 	/**
+	 * 更新发布msgId的bookingleft位置上的TeacherId即bookId
+	 * @param bookId
+	 * @param msgId
+	 * @param bookingLeft
+	 * @return
+	 */
+	public boolean updateMessageBookId(String bookId,Integer msgId,String bookingLeft){
+		try {
+			getQueryRunner().update("UPDATE message SET ?=? WHERE id=?", 
+					new Object[]{bookingLeft,bookId ,msgId});
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+	
+	
+	
+	/**
 	 * 获取首页展示需要的8条最新发布信息
 	 * @return
 	 */
@@ -62,7 +82,11 @@ public class MessageDAO extends BaseDAO{
 	
 	return result;
 	}
-	
+	/**
+	 * 通过id获取Message
+	 * @param id
+	 * @return
+	 */
 	public Message getMessageById(String id){
 		ResultSetHandler<Message> rsh=new BeanHandler<Message>(Message.class);
 		Message dbMessage;
@@ -92,11 +116,13 @@ public class MessageDAO extends BaseDAO{
 		try {
 			getQueryRunner().update("INSERT INTO message "
 					+ "(id,surname,course1,course2,course3,student_gender,student_grade,student_status"
-					+ ",teach_gender,teach_location,teach_time,salary,teach_request,created_at) VALUES " +
-					"(?,?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+					+ ",teach_gender,teach_location,teach_time,salary,teach_request,created_at,teach_type,parent_id,flag) VALUES " +
+					"(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
+					+ "?,?)", 
 					msg.getId(),msg.getSurname(),msg.getCourse1(),msg.getCourse2(),msg.getCourse3(),
 					msg.getStudent_gender(),msg.getStudent_grade(),msg.getStudent_status(),msg.getTeach_gender(),
-					msg.getTeach_location(),msg.getTeach_time(),msg.getSalary(),msg.getTeach_request(),msg.getCreated_at());
+					msg.getTeach_location(),msg.getTeach_time(),msg.getSalary(),msg.getTeach_request(),msg.getCreated_at(),
+					msg.getTeach_type(),msg.getParent_id(),msg.getFlag());
 			return true;
 		} catch (SQLException e) {	
 			System.out.println(e);

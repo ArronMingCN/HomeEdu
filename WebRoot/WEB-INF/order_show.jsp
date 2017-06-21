@@ -13,46 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="./css/order_show.css">
 </head>
 <body>
-	<nav class="nav-top">
-		<div class="nav-content">
-			<div class="nav-logo">HomeEdu</div>
-			<div class="nav-title">
-				<ul class="nav-title-list">
-					<li><a href="#">首页</a></li>
-					<li><a href="#">学员信息</a></li>
-					<li><a href="#">教员信息</a></li>
-					<li>
-					<a href="#">资讯中心</a>
-					<img src="./images/navsub.png">
-						<div class="nav-sub">
-							<ul>
-								<li><a href="#">学习宝典</a></li>
-								<li><a href="#">名师指点</a></li>
-								<li><a href="#">家长课堂</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">关于我们</a></li>
-					<li><a href="#">联系我们</a></li>
-				</ul>
-			</div>
-			<div class="nav-sign-group">
-				<ul>
-					<li>
-						<div class="log-in">
-							<a href="info_add.html">赵女士</a>
-						</div>						
-					</li>
-					<li>
-						<div class="log-in">
-							<a href="Logout.html">注销</a>
-						</div>						
-					</li>
-				</ul>
-			</div>			
-			<div style="clear: both;"></div> 
-		</div>
-	</nav>
 	<div class="order-contain">
 		<div class="content">
 			<div class="content-title">订单信息</div>
@@ -135,9 +95,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 				<div class="bottom">
-					<a href="#" class="btn">申请订单</a>
+					<a href="bookMessage?id=${message.getId()}" class="btn">在线预约</a>
 					<br><br>不是东大家教网老师？
-					<a href="LoginRegister">马上去注册</a>
+					<a target="_parent" href="LoginRegister">马上去注册</a>
 				</div>
 			</div>
 			<div style="clear: both;"></div>

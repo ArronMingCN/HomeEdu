@@ -10,9 +10,23 @@ import com.homeedu.entity.Teacher;
 @Service
 public class TeacherService extends BaseService{
 	
+	
+	
+	public boolean updateTeacherBookingId(Integer msgId,String teacherId,String bookingLeft){
+		return getDaoManager().getTeacherDAO().updateTeacherBookingId(msgId, teacherId, bookingLeft);
+	}
+	
+	
+	
+	
+	/**
+	 * 返回所有教员信息list
+	 * @return
+	 */
 	public List<Teacher> showAllTeachers(){
 		return getDaoManager().getTeacherDAO().getIndexShowTeachers();
 	}
+
 	
 	/**
 	 * 添加教员对象

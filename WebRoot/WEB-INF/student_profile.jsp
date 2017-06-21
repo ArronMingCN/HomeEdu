@@ -1,3 +1,10 @@
+<%@page language="java" import="java.util.*" import="com.homeedu.entity.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+//System.out.println(basePath);
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,116 +49,63 @@
 
 </head>
 <body onload="onload()">
-	<nav class="nav-top">
-		<div class="nav-content">
-			<div class="nav-logo">HomeEdu</div>
-			<div class="nav-title">
-				<ul class="nav-title-list">
-					<li><a href="#">首页</a></li>
-					<li><a href="#">学员信息</a></li>
-					<li><a href="#">教员信息</a></li>
-					<li>
-					<a href="#">资讯中心</a>
-					<img src="./images/navsub.png">
-						<div class="nav-sub">
-							<ul>
-								<li><a href="#">学习宝典</a></li>
-								<li><a href="#">名师指点</a></li>
-								<li><a href="#">家长课堂</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">关于我们</a></li>
-					<li><a href="#">联系我们</a></li>
-				</ul>
-			</div>
-			<div class="nav-sign-group">
-				<ul>
-					<li>
-						<div class="log-in">
-							<a href="info_add.html">赵女士</a>
-						</div>						
-					</li>
-					<li>
-						<div class="log-in">
-							<a href="Logout.html">注销</a>
-						</div>						
-					</li>
-				</ul>
-			</div>			
-			<div style="clear: both;"></div> 
-		</div>
-	</nav>
+	
 	<div class="contain">
 		<div class="content">
 			<div class="content-title">学员个人中心</div>
 			<div class="content-line1"></div>
 			<div class="content-line2"></div>
 			<div class="content-left">
-				<div class="img" id="preview"><img src="./images/teacher01.jpg" width="130px" height="150px"></div>  
-				<input name = "image" type="file" class="file" onchange="preview(this)" />  
 				<table class="custom-table">
 					<tr>
 						<td>用户名：</td>
 						<td>猫的树</td>
 					</tr>
+					
 					<tr>
-						<td>学校：</td>
-						<td>东北大学</td>
-					</tr>
-					<tr>
-						<td>专业：</td>
-						<td>计算机科学与技术</td>
-					</tr>
-					<tr>
-						<td>擅长科目：</td>
-						<td>高中数学</td>
-					</tr>
-					<tr>
-						<td>简介：</td>
-						<td></td>
+						<td>地址：</td>
+						<td>和平区</td>
 					</tr>
 				</table>
 				<a href="info_add.html" class="btn">修改信息</a>
 			</div>
 			<div class="content-right">
 		<div class="rightdiv" style="display:block;">
-			<form class="publishform">
-				
-				<!--<span>辅导科目:</span>
-				<select id="teachsubject" class="select">
-					<option>高中物理</option>
-					<option>高中语文</option>
-					<option>高中数学</option>
-				</select><br>*/
+			<form class="publishform" method="POST" action="addNewMessage">
+				<span>联系人:</span>
+				<input type="text" placeholder="如：王先生、黄女士" name="contactName"><br>
 				<span>辅导年级:</span>
-				<select id="teachgrade" class="select">
-					<option>高中一年级</option>
-					<option>高中二年级</option>
-					<option>高中三年级</option>
-				</select><br>-->
-				<span>辅导年级:</span>
-				<input type="text" placeholder="如：高中一年级" id="teachgrade"><br>
+				<input type="text" placeholder="如：高中一年级" name="teachStatus"><br>
 				<span>辅导科目:</span>
-				<input type="text" placeholder="如：高中语文" id="teachsubject"><br>
+				<input type="text" placeholder="如：高中语文" name="teachSubject"><br>
+				<span>授课要求:</span>
+				<input type="text" placeholder="" name="teachRequest"><br>
+				<span>学生成绩情况:</span>
+			<input type="text" placeholder="" name="teachGrade"><br>
+				<span>学生性别:</span>
+				<select name="student_gender" class="select">
+					<option>男</option>
+					<option>女</option>
+				</select><br>
+				<span>教员性别:</span>
+				<select name="teacher_gender" class="select">
+					<option>男</option>
+					<option>女</option>
+					<option>均可</option>
+				</select><br>
+			
 				<span>辅导方式:</span>
-				<select id="teachmethod" class="select">
+				<select name="teachWay" class="select">
 					<option>教员上门</option>
 					<option>学员上门</option>
 					<option>商量议定</option>
 				</select><br>
 				<span>授课地址:</span>
-				<input type="text" placeholder="如：和平区" id="teacharea"><br>
+				<input type="text" placeholder="如：和平区" name="teachLocation"><br>
 				<span>薪水标准:</span>
-				<input type="text" placeholder="金额" id="salarystandardMoney">/ 每
-				<select id="salarystandardTime" id="salarystandardTime">
-					<option>0.5</option>
-					<option>1</option>
-					<option>1.5</option>
-					<option>2</option>
-				</select>小时<br>
+			<input type="text" placeholder="如：100每小时" name="teachSalary"><br>
 				<span>辅导时间:</span>
-				<input type="date" value="" id="time"><br>
+				<input type="text" placeholder="如：一周三次，每次2小时" name="teachTime"><br>
 				<div class="submitdiv"><input type="submit" value="发布"></div>
 			</form>
 		</div>

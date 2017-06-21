@@ -16,6 +16,20 @@ import com.homeedu.entity.Teacher;
 @Service
 public class TeacherDAO extends BaseDAO{
 
+	
+	 
+	public boolean updateTeacherBookingId(Integer msgId,String teacherId,String bookingLeft){
+		try {
+			getQueryRunner().update("UPDATE teacher SET ?=? WHERE id=?", 
+					new Object[]{bookingLeft,msgId ,teacherId});
+		} catch (SQLException e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
+	
+	
 	/**
 	 * 主页显示的teacher
 	 * @return
@@ -48,14 +62,15 @@ public class TeacherDAO extends BaseDAO{
 		//add a new teacher
 		try {
 			getQueryRunner().update("INSERT INTO teacher "
-					+ "(id,name,password,gender,birth_year,birth_month,sno,telephone,school,major,GPA,portrait,introduction,level,course1,course2,course3,course4,course5,location,teach_time,ordernum,created_at,updated_at) VALUES " +
+					+ "(id,name,password,gender,birth_year,birth_month,sno,telephone,school,major,GPA,portrait,introduction,level,course1,course2,course3,course4,course5,location,"
+					+ "teach_time,ordernum,created_at,updated_at,teach_type) VALUES " +
 					"(?,?,?,?,?,?,?,?,?,?,"
 					+"?,?,?,?,?,?,?,?,?,?,"
-					+"?,?,?,?)", 
+					+"?,?,?,?,?)", 
 					newTea.getId(),newTea.getName(),newTea.getPassword(),newTea.getGender(),
 					newTea.getBirth_year(),newTea.getBirth_month(),newTea.getSno(),newTea.getTelephone(),newTea.getSchool(),newTea.getMajor(),newTea.getGPA(),newTea.getPortrait(),
 					newTea.getIntroduction(),newTea.getLevel(),newTea.getCourse1(),newTea.getCourse2(),newTea.getCourse3(),newTea.getCourse4(),newTea.getCourse5(),newTea.getLocation(),newTea.getTeach_time(),
-					newTea.getOrdernum(),newTea.getCreated_at(),newTea.getUpdated_at());
+					newTea.getOrdernum(),newTea.getCreated_at(),newTea.getUpdated_at(),newTea.getTeach_type());
 			return true;
 		} catch (SQLException e) {
 			

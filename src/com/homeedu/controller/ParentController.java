@@ -29,8 +29,9 @@ public class ParentController extends BaseController{
 		if(dbParent.getPassword().equals(password)){
 			//登录成功，记录进session
 			System.out.println("登录成功");
-			request.getSession().setAttribute(SESSION_LOGIN_USER, dbParent);
-			return new ModelAndView("/index");
+			request.getSession().setAttribute(SESSION_LOGIN_STUDENT, dbParent);
+			
+			return new ModelAndView("redirect:/index");
 		}
 		else{
 			//返回用户名或密码错误
@@ -41,10 +42,10 @@ public class ParentController extends BaseController{
 	}
 	@RequestMapping("/parent_center")
 	public ModelAndView parent_center(HttpServletRequest request,HttpServletResponse response){
-		if(request.getSession().getAttribute(SESSION_LOGIN_USER)==null){
+		if(request.getSession().getAttribute(SESSION_LOGIN_STUDENT)==null){
 			return new ModelAndView("redirect:/student_login");
 		}
-		return new ModelAndView("/info_add");
+		return new ModelAndView("/student_profile");
 		
 	}
 

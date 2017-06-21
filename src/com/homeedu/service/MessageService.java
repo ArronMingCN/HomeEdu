@@ -9,6 +9,24 @@ import com.homeedu.entity.Message;
 @Service
 public class MessageService extends BaseService{
 
+	
+	/**
+	 * 更新发布msgId的bookingleft位置上的TeacherId即bookId
+	 * @param teacherId
+	 * @param msgId
+	 * @param bookingLeft
+	 * @return
+	 */
+	public boolean updateMessageBookTeacherId(String teacherId,Integer msgId,String bookingLeft){
+		return getDaoManager().getMessageDAO().updateMessageBookId(teacherId, msgId, bookingLeft);
+	}
+	
+	
+	/**
+	 * 添加新的发布信息
+	 * @param msg
+	 * @return
+	 */
 	public boolean addMessageService(Message msg){
 		return getDaoManager().getMessageDAO().addNewMessage(msg);
 	}

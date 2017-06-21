@@ -28,8 +28,10 @@ public class Teacher {
 	String ordernum;
 	String created_at;
 	String updated_at;
-	
-
+	String teach_type;
+	Integer bookMessage1;
+	Integer bookMessage2;
+	Integer bookMessage3;
 	public Teacher(){
 		
 	}
@@ -80,6 +82,7 @@ public class Teacher {
 		this.location = "";
 		this.teach_time = "";
 		this.ordernum = "";
+		this.teach_type="";
 		this.created_at =DateUtil.getCurrentTimestamp().toString();;
 		this.updated_at = DateUtil.getCurrentTimestamp().toString();;
 		// TODO Auto-generated constructor stub
@@ -229,6 +232,38 @@ public class Teacher {
 	public void setUpdated_at(String updated_at) {
 		this.updated_at = updated_at;
 	}
+	public String getTeach_type() {
+		return teach_type;
+	}
+
+	public void setTeach_type(String teach_type) {
+		this.teach_type = teach_type;
+	}
+
+	public Integer getBookMessage1() {
+		return bookMessage1;
+	}
+
+	public void setBookMessage1(Integer bookMessage1) {
+		this.bookMessage1 = bookMessage1;
+	}
+
+	public Integer getBookMessage2() {
+		return bookMessage2;
+	}
+
+	public void setBookMessage2(Integer bookMessage2) {
+		this.bookMessage2 = bookMessage2;
+	}
+
+	public Integer getBookMessage3() {
+		return bookMessage3;
+	}
+
+	public void setBookMessage3(Integer bookMessage3) {
+		this.bookMessage3 = bookMessage3;
+	}
+
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", name=" + name + ", password="
@@ -242,9 +277,10 @@ public class Teacher {
 				+ ", course5=" + course5 + ", location=" + location
 				+ ", teach_time=" + teach_time + ", ordernum=" + ordernum
 				+ ", created_at=" + created_at + ", updated_at=" + updated_at
-				+ "]";
+				+ ", teach_type=" + teach_type + "]";
 	}
-	
+
+
 	
 	
 	

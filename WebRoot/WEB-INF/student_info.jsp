@@ -58,32 +58,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <body onLoad="goPage(1,5)">
-	<nav class="nav-top">
-		<div class="nav-content">
-			<div class="nav-logo">HomeEdu</div>
-			<div class="nav-title">
-				<ul class="nav-title-list">
-					<li><a href="#">首页</a></li>
-					<li><a href="#">学员信息</a></li>
-					<li><a href="#">教员信息</a></li>
-					<li>
-					<a href="#">资讯中心</a>
-					<img src="./images/navsub.png">
-						<div class="nav-sub">
-							<ul>
-								<li><a href="#">学习宝典</a></li>
-								<li><a href="#">名师指点</a></li>
-								<li><a href="#">家长课堂</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">关于我们</a></li>
-					<li><a href="#">联系我们</a></li>
-				</ul>
-			</div>		
-			<div style="clear: both;"></div> 
-		</div>
-	</nav>
 	<div class="contain">
 		<div class="content">
 			<div class="content-title">学员信息</div>
@@ -104,14 +78,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</tbody>
 				<c:forEach items="${listOfMessages}" var="list">
-					<tr class="center-text table-line">
-						<td>${list.getSurname()}</td>
-						<td>上门授课</td>
+					<tr onclick="window.location.href='showMessageDetail?id=${list.getId()}}'"
+					 class="center-text table-line">
+						<td >${list.getSurname()}</td>
+						<td>${list.getTeach_type()} </td>  
 						<td>${list.getCourse1()}</td>
 						<td>${list.getStudent_status()}</td>
 						<td>${list.getSalary()}</td>
 						<td>${list.getCreated_at()}</td>
-						<td><a href="showMessageDetail?id=${list.getId()}}">详细内容</a></td>
+						<!--  <td><a href="showMessageDetail?id=${list.getId()}}">详细内容</a></td>-->
 					</tr>
 				</c:forEach>
 					<!-- 
