@@ -10,6 +10,12 @@ import com.homeedu.entity.Teacher;
 @Service
 public class TeacherService extends BaseService{
 	
+	
+	public List<Teacher> getTeachersById(List<String> list){
+		return getDaoManager().getTeacherDAO().getTeachersById(list);
+	}
+	
+	
 	public boolean updatePartOfTeacher(Teacher ter){
 		return getDaoManager().getTeacherDAO().updatePartOfTeacher(ter);
 	}

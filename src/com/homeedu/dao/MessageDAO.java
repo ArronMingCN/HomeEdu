@@ -16,6 +16,34 @@ import com.homeedu.entity.Teacher;
 @Service
 public class MessageDAO extends BaseDAO{
 
+	public List<String> getBookingTeachersById(Integer id){
+		List<String> list=new ArrayList<String>();
+		String id1="none",id2="none",id3="none";
+		try{
+			id1=getQueryRunner().query("SELECT bookTeacher1 FROM message WHERE id=?", new ScalarHandler<String>(),id);
+			if(id1!=null){
+				System.out.print(id1);
+
+			}
+			id2=getQueryRunner().query("SELECT bookTeacher2 FROM message WHERE id=?", new ScalarHandler<String>(),id);
+			if(id2!=null){
+				System.out.print(id1);
+				
+			}
+			id3=getQueryRunner().query("SELECT bookTeacher3 FROM message WHERE id=?", new ScalarHandler<String>(),id);
+			if(id3!=null){
+				System.out.print(id1);
+				
+			}			
+			list.add(id1);list.add(id2);list.add(id3);
+		}catch(SQLException e){
+			System.out.println(e);
+			return null;
+		}
+		return list;
+	}
+	
+	
 	
 	public List<Message> getSuccessMessagesByParentId(String parentId){
 		ResultSetHandler<List<Message>> rsh = new BeanListHandler<Message>(Message.class);

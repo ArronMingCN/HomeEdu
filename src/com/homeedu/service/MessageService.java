@@ -9,6 +9,10 @@ import com.homeedu.entity.Message;
 @Service
 public class MessageService extends BaseService{
 
+	public List<String> getBookingTeachers(Integer msgId){
+		return getDaoManager().getMessageDAO().getBookingTeachersById(msgId);
+	}
+	
 	/**
 	 * 获取预定的Msg列表 通过parentid
 	 * @param parentId

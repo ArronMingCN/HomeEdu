@@ -45,17 +45,9 @@ System.out.println(teacher.toString());
 					<li><a target="content" href="student_info">学员信息</a></li>
 					<li><a target="content" href="teacher_info">教员信息</a></li>
 					<li>
-					<a href="#">资讯中心</a>
-					<img src="./images/navsub.png">
-						<div class="nav-sub">
-							<ul>
-								<li><a href="#">学习宝典</a></li>
-								<li><a href="#">名师指点</a></li>
-								<li><a href="#">家长课堂</a></li>
-							</ul>
-						</div>
-					</li>
-					<li><a href="#">关于我们</a></li>
+				
+					<li><a target="content" href="study">学习宝典</a></li>
+					<li><a target="content" href="aboutUs">关于我们</a></li>
 					<li><a href="#">联系我们</a></li>
 				    <li><a target="content" href="<%=url%>">个人中心</a></li>
 				</ul>

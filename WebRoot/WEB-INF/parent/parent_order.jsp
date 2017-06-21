@@ -188,10 +188,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<section>				
 							<div id="order_info1">
 							<c:forEach items="${bookinglist}" var="list">
-							<div class="info">
-								<div class="custom-table">
-									<table>
-										<tr>
+							<div  onclick="window.location.href='chooseTeacher?id=${list.getId()}'" class="info">
+								<div  class="custom-table">
+									<table >
+										<tr >
 											<td>订单编号：</td>
 											<td>N${list.getId()+100}</td>
 										</tr>

@@ -17,7 +17,15 @@ import com.homeedu.entity.test;
 @Controller
 public class IndexController extends BaseController{
 
+	@RequestMapping("/study")
+	public ModelAndView study(HttpServletRequest request,HttpServletResponse response){
+		return new ModelAndView("/study");
+	}
 	
+	@RequestMapping("/aboutUs")
+	public ModelAndView aboutUs(HttpServletRequest request,HttpServletResponse response){
+		return new ModelAndView("/about");
+	}
 	
 	@RequestMapping("/index")
 	public ModelAndView index(HttpServletRequest request,HttpServletResponse response){

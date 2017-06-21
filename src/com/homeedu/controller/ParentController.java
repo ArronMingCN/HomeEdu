@@ -13,13 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.homeedu.entity.Message;
 import com.homeedu.entity.Parent;
+import com.homeedu.entity.Teacher;
 import com.homeedu.util.DateUtil;
 
 
 @Controller
 public class ParentController extends BaseController{
 	
-	@RequestMapping("confirmMessage")
+	@RequestMapping("confirmTeacher")
 	public ModelAndView confirmMessage(HttpServletRequest request,HttpServletResponse response){
 		String errorNote="发生错误";
 		ModelAndView error=new ModelAndView("/errorPage","errorMessage",errorNote);
@@ -32,13 +33,13 @@ public class ParentController extends BaseController{
 		Integer msgId=Integer.getInteger(request.getParameter("msgId"));
 		String teacherId=request.getParameter("teacherId");
 		*/
-		Integer msgId=12;
-		String teacherId="liba";
+		String teacherId= request.getParameter("id");
+		Integer id=Integer.valueOf(request.getParameter("msgId"));
 		String dealtime=DateUtil.getCurrentTimestamp().toString();
-		boolean a=getServiceManager().getMessageService().updateMessageConfirm(teacherId, msgId, dealtime);
-		boolean b=getServiceManager().getTeacherService().updateTeacherBook(msgId);
+		boolean a=getServiceManager().getMessageService().updateMessageConfirm(teacherId, id, dealtime);
+		boolean b=getServiceManager().getTeacherService().updateTeacherBook(id);
 		if((a==true)&&(b==true)){
-			return new ModelAndView("/student_profile");
+			return new ModelAndView("redirect:/parentMessages");
 		}
 		return error;
 	}
@@ -116,6 +117,13 @@ public class ParentController extends BaseController{
 		
 		return new ModelAndView("/LoginRegister");
 	}
-	
-	
+	@RequestMapping("chooseTeacher")
+	public ModelAndView chooseTeacher(HttpServletRequest request,HttpServletResponse response){
+		String id=request.getParameter("id");
+		Message msg=getServiceManager().getMessageService().getMessageById(id);//用语订单详情展示
+		List<String> list=getServiceManager().getMessageService().getBookingTeachers(msg.getId());
+		List<Teacher> listTeacher=getServiceManager().getTeacherService().getTeachersById(list);
+		request.setAttribute("listOfTeachers", listTeacher);
+		return new ModelAndView("/parent/order_choose","message",msg);
+	}
 }

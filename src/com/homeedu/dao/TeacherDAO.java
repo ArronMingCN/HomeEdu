@@ -10,6 +10,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.springframework.stereotype.Service;
 
+import com.homeedu.entity.Message;
 import com.homeedu.entity.Teacher;
 
 
@@ -17,6 +18,22 @@ import com.homeedu.entity.Teacher;
 @Service
 public class TeacherDAO extends BaseDAO{
 
+	public List<Teacher> getTeachersById(List<String> list){
+		ResultSetHandler<List<Teacher>> rsh = new BeanListHandler<Teacher>(Teacher.class);
+		StringBuilder sqlBuilder=new StringBuilder();
+		sqlBuilder.append("SELECT * "
+				+ " FROM teacher where id=? or id=? or id=?");
+		List<Teacher> result = new ArrayList<>();
+		try {
+			result = getQueryRunner().query(sqlBuilder.toString(), rsh,new Object[]{list.get(0) ,list.get(1),list.get(2)});
+			//System.out.print(result.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	return result;
+	}
 	
 	public boolean updatePartOfTeacher(Teacher ter){
 		try {
