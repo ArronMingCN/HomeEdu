@@ -20,6 +20,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    height: 470px;
 	    margin-bottom: 50px;
 	}
+	a{
+	    color:#999;
+	}
 	#Marquee_x { overflow:hidden;} 
 	#Marquee_x ul li { float:left;overflow:hidden} /* 横向滚动必须让所有li左浮动 */
 
@@ -78,12 +81,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="loopimgdiv" id="imgbox">
 		<div class="pic">
 			<ul class="banner_imgs" >
-				<li><a href="#"><img src="./images/image01.png" height="470" alt=""></a></li>
-				<li><a href="#"><img src="./images/image05.jpg" height="470" alt=""></a></li>
-				<li><a href="#"><img src="./images/image07.jpg" height="470" alt=""></a></li>
-				<li><a href="#"><img src="./images/image08.jpg" height="470" alt=""></a></li>
-				<li><a href="#"><img src="./images/image09.jpg" height="470" alt=""></a></li>
-				<li><a href="#"><img src="./images/image10.jpg" height="470" alt=""></a></li>
+				<li><a href="#"><img src="./images/image01.png" width="1360" height="470" alt=""></a></li>
+				<li><a href="#"><img src="./images/image05.jpg" width="1360" height="470" alt=""></a></li>
+				<li><a href="#"><img src="./images/image07.jpg" width="1360" height="470" alt=""></a></li>
+				<li><a href="#"><img src="./images/image08.jpg" width="1360" height="470" alt=""></a></li>
+				<li><a href="#"><img src="./images/image09.jpg" width="1360" height="470" alt=""></a></li>
+				<li><a href="#"><img src="./images/image10.jpg" width="1360" height="470" alt=""></a></li>
 			</ul>
 		</div>
 	</div> 

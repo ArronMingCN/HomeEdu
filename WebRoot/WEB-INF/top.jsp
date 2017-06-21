@@ -52,15 +52,15 @@ System.out.println(teacher.toString());
 				    <li><a target="content" href="<%=url%>">个人中心</a></li>
 				</ul>
 			</div>
-			<div class="nav-sub">
+			<div class="nav-sign-group">
 				<ul>
 					<li>
-						<div class="nav-sub">
+						<div class="nav-group">
 							<a target="_parent" href="<%=loginUrl%>"><%=user%></a>
 						</div>						
 					</li>
 					<li>
-						<div class="nav-sub">
+						<div class="nav-group">
 							<a  target="_parent" href="<%=url2%>"><%=registerAndloginout %></a>
 						</div>						
 					</li>

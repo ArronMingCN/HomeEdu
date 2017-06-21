@@ -79,7 +79,9 @@ a {
   list-style: none;
   padding: 0 10px;
 }
-
+.nav-group a{
+	line-height:60px;
+}
 .three-d {
   position: relative;
   width: 100%;

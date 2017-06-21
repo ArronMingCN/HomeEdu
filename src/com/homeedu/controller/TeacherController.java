@@ -123,7 +123,7 @@ public class TeacherController extends BaseController{
 		Teacher db=getServiceManager().getTeacherService().getTeacherById(id);
 		Parent par=(Parent) request.getSession().getAttribute(SESSION_LOGIN_STUDENT);
 		if(par==null){
-			db.setTelephone("请先登录");
+			db.setTelephone("请先作为家长登录");
 		}
 		return new ModelAndView("/teacher/teacher_public","teacher",db);
 	}

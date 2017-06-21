@@ -66,13 +66,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${parent.getName() }家长</td>
 					</tr>
 				</table>
-				<a target="content" href="parent_center" class="btn">发布</a>
+				<a target="content" href="parent_center" class="btn">发布订单</a>
 				<a target="content" href="parentMessages" class="btn">历史订单</a>
 			</div>
 			<div class="content-right">
 		<div class="rightdiv" style="display:block;">
 			<form target="_parent" class="publishform" method="POST" action="addNewMessage">
-				<span>联系人:</span>
+				<span>联系人   :</span>
 				<input type="text" placeholder="如：王先生、黄女士" name="contactName"><br>
 				<span>辅导年级:</span>
 				<input type="text" placeholder="如：高中一年级" name="teachStatus"><br>
@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="text" placeholder="如：高中语文" name="teachSubject"><br>
 				<span>授课要求:</span>
 				<input type="text" placeholder="" name="teachRequest"><br>
-				<span>学生成绩情况:</span>
+				<span>学生成绩:</span>
 			<input type="text" placeholder="" name="teachGrade"><br>
 				<span>学生性别:</span>
 				<select name="student_gender" class="select">

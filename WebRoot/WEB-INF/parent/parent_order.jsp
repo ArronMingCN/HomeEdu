@@ -172,7 +172,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${parent.getName() }家长</td>
 					</tr>
 				</table>
-				<a target="content" href="parent_center" class="btn">发布</a>
+				<a target="content" href="parent_center" class="btn">发布订单</a>
 				<a target="content" href="parentMessages" class="btn">历史订单</a>
 			</div>
 			<div class="content-right">

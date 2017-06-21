@@ -40,7 +40,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	         }  
 	    }  
 	</script>  
-
+<style type="text/css">
+.btn {
+   height: 34px;
+   line-height: 34px;
+   border-radius: 4px;
+   border: 0;
+   margin-top: 25px;
+   font-weight: 500;
+   margin-left: 36%;
+   padding: 4px 15px;
+   display: inline-block;
+   letter-spacing: .03em;
+   background-color: #d0d0d0;
+}
+a {
+color:#000;
+}
+</style>
 </head>
 <body>
 	
