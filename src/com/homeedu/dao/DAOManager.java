@@ -10,22 +10,13 @@ import com.alibaba.druid.sql.dialect.odps.visitor.OdpsASTVisitor;
 public class DAOManager {
 
 	@Autowired
-	private TestUserDAO testUserDAO;
-	
-	@Autowired
 	private ParentDAO parentDAO;
 	
 	@Autowired
 	private MessageDAO messageDAO;
 	@Autowired
 	private TeacherDAO teacherDAO;
-	@Autowired
-	private OrderDAO orderDAO;
-	
-	
-	public TestUserDAO getTestUserDAO(){
-		return testUserDAO;
-	}
+
 	
 	public ParentDAO getParentDAO(){
 		return parentDAO;
@@ -36,8 +27,5 @@ public class DAOManager {
 	}	
 	public TeacherDAO getTeacherDAO(){
 		return teacherDAO;
-	}
-	public OrderDAO getOrderDAO(){
-		return orderDAO;
 	}
 }

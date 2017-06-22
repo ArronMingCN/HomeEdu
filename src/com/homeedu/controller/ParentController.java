@@ -1,16 +1,12 @@
 package com.homeedu.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.homeedu.entity.Message;
 import com.homeedu.entity.Parent;
 import com.homeedu.entity.Teacher;
@@ -76,7 +72,7 @@ public class ParentController extends BaseController{
 		if(par==null){
 			return new ModelAndView("redirect:/student_login");
 		}
-		return new ModelAndView("/student_profile","parent",par);
+		return new ModelAndView("/parent/student_profile","parent",par);
 		
 	}	
 	@RequestMapping("/parentMessages")

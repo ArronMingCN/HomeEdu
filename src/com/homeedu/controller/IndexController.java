@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.homeedu.entity.Message;
 import com.homeedu.entity.Teacher;
-import com.homeedu.entity.test;
+
 
 @Controller
 public class IndexController extends BaseController{

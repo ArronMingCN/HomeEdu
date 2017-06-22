@@ -27,20 +27,23 @@ public class TeacherController extends BaseController{
 	 */
 	@RequestMapping("bookMessage")
 	public ModelAndView bookMessage(HttpServletRequest request,HttpServletResponse response){
-		String errorMessage="您的预约次数或者改发布预约已满，请清理预约发布或重新选择发布信息。给您带来的不便敬请谅解！";
-		ModelAndView errorPage=new ModelAndView("/errorPage","errorMessage",errorMessage);
+		
+		String errorMessage="null";
 		Teacher loginOldTeacher=(Teacher) request.getSession().getAttribute(SESSION_LOGIN_TEACHER);
 		
 		if(loginOldTeacher==null){
 			errorMessage="请教员先登录";
-			return errorPage;
+			return new ModelAndView("/errorPage","errorMessage",errorMessage);
+		}
+		else{
+			errorMessage="您的预约次数或该发布预约已满，请清理预约发布或重新选择发布信息。给您带来的不便敬请谅解！";
 		}
 		Teacher loginTeacher=getServiceManager().getTeacherService().getTeacherById(loginOldTeacher.getId());
 		String msgId=request.getParameter("id");
 		Message dbmsg=getServiceManager().getMessageService().getMessageById(msgId);
-		
+		ModelAndView errorModelAndView=new ModelAndView("/errorPage","errorMessage",errorMessage);
 		if(dbmsg==null){
-			return errorPage;
+			return errorModelAndView;
 		}
 		
 		//若是有登录的教员和传来的发布信息的id则开始验证
@@ -53,7 +56,8 @@ public class TeacherController extends BaseController{
 		}else if(loginTeacher.getBookMessage3()==null){
 			teacherBookingLeft=3;
 		}else{
-			return errorPage;//这里应该是没有提示没有剩余的预约次数
+		
+			return errorModelAndView;//这里应该是没有提示没有剩余的预约次数
 		}
 		//查询Message剩余的Book位置
 		Integer messageBookingLeft=0;;//没有剩余
@@ -64,7 +68,7 @@ public class TeacherController extends BaseController{
 		}else if(dbmsg.getBookTeacher3()==null){
 			messageBookingLeft=3;
 		}else{
-			return errorPage;//这里应该是提示该信息发布 预约已满
+			return errorModelAndView;//这里应该是提示该信息发布 预约已满
 		}
 		System.out.println("teacherBookingleft:"+teacherBookingLeft+",messageBookingleft:"+messageBookingLeft);
 		//若都满足 则开始插入    先往Message中插入Teacher id 
@@ -77,7 +81,7 @@ public class TeacherController extends BaseController{
 		}else if(messageBookingLeft==3){
 			a=getServiceManager().getMessageService().updateMessageBookTeacher3Id(loginTeacher.getId(), dbmsg.getId());
 		}else{
-			return errorPage;
+			return errorModelAndView;
 		}
 		
 		if(teacherBookingLeft==1){
@@ -87,7 +91,7 @@ public class TeacherController extends BaseController{
 		}else if (teacherBookingLeft==3){
 			b=getServiceManager().getTeacherService().updateTeacherBooking3Id(dbmsg.getId(), loginTeacher.getId());
 		}else{
-			return errorPage;
+			return errorModelAndView;
 		}
 		
 		System.out.println(a+","+b);
@@ -129,8 +133,8 @@ public class TeacherController extends BaseController{
 	}
 	@RequestMapping("teacher_info_add")
 	public ModelAndView teacher_info_add(HttpServletRequest request,HttpServletResponse response){
-		
-		return new ModelAndView("/teacher/teacher_info_add");
+		Teacher teacher=(Teacher) request.getSession().getAttribute(SESSION_LOGIN_TEACHER);
+		return new ModelAndView("/teacher/teacher_info_add","teacher",teacher);
 		
 	}
 	@RequestMapping("do_teacher_info_add")

@@ -9,16 +9,11 @@ public class ServiceManager {
 	private ParentService parentService;
 	@Autowired
 	private MessageService messageService;
-	@Autowired
-	private TestUserService testUserService;
+
 	@Autowired
 	private TeacherService teacherService;
-	@Autowired
-	private OrderService orderService;
+
 	
-	public TestUserService getTestUserService(){
-		return testUserService;
-	}
 	
 	public ParentService getParentService(){
 		return parentService;
@@ -29,8 +24,6 @@ public class ServiceManager {
 	public TeacherService getTeacherService(){
 		return teacherService;
 	}
-	public OrderService getOrderService(){
-		return orderService;
-	}
+
 
 }

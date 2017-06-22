@@ -5,9 +5,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
-import com.alibaba.druid.pool.DruidDataSource;
 
 public class BaseDAO {
 	@Autowired

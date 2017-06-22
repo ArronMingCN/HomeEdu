@@ -38,9 +38,9 @@ public class MessageController extends BaseController{
 		String id=request.getParameter("id");
 		Message dbMessage=getServiceManager().getMessageService().getMessageById(id);
 		if(dbMessage==null){
-			return new ModelAndView("errPage");
+			return new ModelAndView("/errPage");
 		}
-		return new ModelAndView("/order_show","message",dbMessage);
+		return new ModelAndView("/parent/order_show","message",dbMessage);
 	}
 	/**
 	 * 添加新的发布内容
@@ -65,7 +65,7 @@ public class MessageController extends BaseController{
 		String teach_type=request.getParameter("teachWay");
 		Parent sessionParent=(Parent) request.getSession().getAttribute(SESSION_LOGIN_STUDENT);
 		if(sessionParent==null){
-			return new ModelAndView("/student_profile");
+			return new ModelAndView("/parent/student_profile");
 		}
 		String parent_id=sessionParent.getId();
 		Message newMsg=new Message(surname,course1,student_gender,student_grade,student_status,teacher_gender,teach_location,teach_time,salary
